@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(for dir in AccountService EurekaServer ItemService OrderService PaymentService)",
+      "Bash(done)"
+    ]
+  }
+}
