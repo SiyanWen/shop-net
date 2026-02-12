@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(for dir in AccountService EurekaServer ItemService OrderService PaymentService)",
+      "Bash(done)",
+      "Bash(javap:*)",
+      "Bash(mvn clean package:*)",
+      "Bash(ls \"D:\\\\A_Chuwa\\\\final_chuwa\\\\ItemService\\\\initdb\"\" 2>nul || echo \"Directory does not exist \")",
+      "Bash(dir:*)"
+    ]
+  }
+}

@@ -1,0 +1,26 @@
+server:
+  port: 9090
+
+spring:
+  application:
+    name: APIGatewayService
+  cloud:
+    gateway:
+      routes:
+        - id: account-service
+          uri: lb://AccountService
+          predicates:
+            - Path=/api/v1/auth/**
+        - id: item-service
+          uri: lb://ItemService
+          predicates:
+            - Path=/api/v1/item/**
+        - id: payment-service
+          uri: lb://PaymentService
+          predicates:
+            - Path=/api/v1/payment/**
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/

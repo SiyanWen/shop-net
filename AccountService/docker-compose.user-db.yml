@@ -1,0 +1,33 @@
+version: "3.9"
+
+services:
+  user-postgres:
+    image: postgres:16
+    container_name: user-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: userdb
+      POSTGRES_USER: userapp
+      POSTGRES_PASSWORD: userpass
+      # Optional: set a stronger password via .env and reference ${...}
+      # PGPORT is fixed inside container, map with "ports" below
+    ports:
+      - "5432:5432"
+    volumes:
+      # Place any *.sql or *.sh in ./initdb; they run once on first boot
+      - ./initdb:/docker-entrypoint-initdb.d
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U userapp -d userdb"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - shop-net
+
+volumes:
+  user_pg_data:
+
+networks:
+  shop-net:
+    name: shop-net
+    driver: bridge

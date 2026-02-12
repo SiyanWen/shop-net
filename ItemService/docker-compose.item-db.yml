@@ -1,0 +1,33 @@
+version: "3.9"
+
+services:
+  item-mongo:
+    image: mongo:7
+    container_name: item-mongo
+    restart: unless-stopped
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: itemroot
+      MONGO_INITDB_ROOT_PASSWORD: itempass
+      MONGO_INITDB_DATABASE: itemdb
+    ports:
+      - "27017:27017"
+    volumes:
+      - item_mongo_data:/data/db
+      # Any *.js or *.sh in ./initdb run once to set up DB/collections/indexes
+      - ./initdb:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      # mongosh is included in mongo:7; returns 0 when reachable
+      test: ["CMD-SHELL", "mongosh --username itemroot --password itempass --authenticationDatabase admin --eval \"db.adminCommand('ping')\" >/dev/null 2>&1"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - shop-net
+
+volumes:
+  item_mongo_data:
+
+networks:
+  shop-net:
+    name: shop-net
+    driver: bridge
