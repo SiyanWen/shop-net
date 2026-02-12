@@ -16,9 +16,9 @@ CREATE TABLE IF NOT EXISTS users (
     username VARCHAR(255) NOT NULL,
     password VARCHAR(255) NOT NULL,
     enabled BOOLEAN NOT NULL,
-    shipping_address VARCHAR(255) NOT NULL,
-    billing_address VARCHAR(255) NOT NULL,
-    payment_method VARCHAR(255) NOT NULL
+    shipping_address VARCHAR(255) ,
+    billing_address VARCHAR(255) ,
+    payment_method VARCHAR(255)
 );
 
 -- Create user_roles join table

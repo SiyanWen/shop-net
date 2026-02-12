@@ -4,16 +4,58 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="495d9cdd-826e-4fa8-bf26-34b05f2dc11f" name="Changes" comment="initialized backend">
-      <change afterPath="$PROJECT_DIR$/PaymentService/.gitattributes" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PaymentService/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PaymentService/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PaymentService/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PaymentService/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PaymentService/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PaymentService/src/main/java/org/example/paymentservice/PaymentServiceApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PaymentService/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PaymentService/src/test/java/org/example/paymentservice/PaymentServiceApplicationTests.java" afterDir="false" />
+    <list default="true" id="82cbe5b4-0e37-430d-b50e-b208b5fee086" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/final_chuwa.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AccountService/src/main/java/org/example/accountservice/payload/security/SignUpDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/OrderService/initdb/01_keyspace_and_tables.cql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.claude/settings.local.json" beforeDir="false" afterPath="$PROJECT_DIR$/.claude/settings.local.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AccountService/initdb/01_schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/AccountService/initdb/01_schema.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AccountService/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/AccountService/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AccountService/src/main/java/org/example/microservices/UserServer/UserServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/AccountService/src/main/java/org/example/accountservice/AccountServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AccountService/src/main/java/org/example/microservices/UserServer/config/CommonConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/AccountService/src/main/java/org/example/accountservice/config/CommonConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AccountService/src/main/java/org/example/microservices/UserServer/config/security/SecurityDBJWTConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/AccountService/src/main/java/org/example/accountservice/config/security/SecurityDBJWTConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AccountService/src/main/java/org/example/microservices/UserServer/controller/AuthJWTController.java" beforeDir="false" afterPath="$PROJECT_DIR$/AccountService/src/main/java/org/example/accountservice/controller/AuthJWTController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AccountService/src/main/java/org/example/microservices/UserServer/dao/security/RoleRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/AccountService/src/main/java/org/example/accountservice/dao/security/RoleRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AccountService/src/main/java/org/example/microservices/UserServer/dao/security/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/AccountService/src/main/java/org/example/accountservice/dao/security/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AccountService/src/main/java/org/example/microservices/UserServer/entity/security/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/AccountService/src/main/java/org/example/accountservice/entity/security/Role.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AccountService/src/main/java/org/example/microservices/UserServer/entity/security/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/AccountService/src/main/java/org/example/accountservice/entity/security/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AccountService/src/main/java/org/example/microservices/UserServer/exception/BlogAPIException.java" beforeDir="false" afterPath="$PROJECT_DIR$/AccountService/src/main/java/org/example/accountservice/exception/BlogAPIException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AccountService/src/main/java/org/example/microservices/UserServer/exception/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/AccountService/src/main/java/org/example/accountservice/exception/GlobalExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AccountService/src/main/java/org/example/microservices/UserServer/exception/ResourceNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/AccountService/src/main/java/org/example/accountservice/exception/ResourceNotFoundException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AccountService/src/main/java/org/example/microservices/UserServer/payload/ErrorDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/AccountService/src/main/java/org/example/accountservice/payload/ErrorDetails.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AccountService/src/main/java/org/example/microservices/UserServer/payload/security/JWTAuthResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/AccountService/src/main/java/org/example/accountservice/payload/security/JWTAuthResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AccountService/src/main/java/org/example/microservices/UserServer/payload/security/LoginDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/AccountService/src/main/java/org/example/accountservice/payload/security/LoginDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AccountService/src/main/java/org/example/microservices/UserServer/payload/security/SignUpDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AccountService/src/main/java/org/example/microservices/UserServer/security/CustomUserDetailsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/AccountService/src/main/java/org/example/accountservice/security/CustomUserDetailsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AccountService/src/main/java/org/example/microservices/UserServer/security/JwtAuthenticationEntryPoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/AccountService/src/main/java/org/example/accountservice/security/JwtAuthenticationEntryPoint.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AccountService/src/main/java/org/example/microservices/UserServer/security/JwtAuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/AccountService/src/main/java/org/example/accountservice/security/JwtAuthenticationFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AccountService/src/main/java/org/example/microservices/UserServer/security/JwtTokenProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/AccountService/src/main/java/org/example/accountservice/security/JwtTokenProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AccountService/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/AccountService/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AccountService/src/test/java/org/example/microservices/UserServer/UserServiceApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/AccountService/src/test/java/org/example/accountservice/UserServiceApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EurekaServer/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/EurekaServer/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ItemService/docker-compose.catalog-db.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ItemService/docker-compose.item-db.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ItemService/initdb/01_items.js" beforeDir="false" afterPath="$PROJECT_DIR$/ItemService/initdb/01_items.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ItemService/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ItemService/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ItemService/src/main/java/org/example/microservices/CatalogService/CatalogServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/ItemService/src/main/java/org/example/microservices/ItemService/ItemServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ItemService/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/ItemService/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ItemService/src/test/java/org/example/catalogservice/CatalogServiceApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/ItemService/src/test/java/org/example/itemservice/ItemServiceApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OrderService/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OrderService/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OrderService/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OrderService/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OrderService/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OrderService/.idea/uiDesigner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OrderService/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OrderService/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/OrderService/docker-compose.order-db.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OrderService/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PaymentService/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/PaymentService/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PaymentService/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/PaymentService/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,12 +66,12 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Dockerfile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="ROOT_SYNC" value="SYNC" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
@@ -48,46 +90,101 @@
   &quot;isMigrated&quot;: true
 }</component>
   <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 4
 }</component>
-  <component name="ProjectId" id="31LceKT8HUswQ5CawoGe7sEPwtg" />
+  <component name="ProjectId" id="39V3OR6cJKH1hFLdhOc8hnv6ma1" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;Spring Boot.UserServiceApplication.executor&quot;: &quot;Debug&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;develop/feature/accountservice&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/A_Chuwa/final_chuwa&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Spring Boot.APIGatewayApplication.executor": "Run",
+    "Spring Boot.AccountServiceApplication.executor": "Run",
+    "Spring Boot.EurekaServerApplication (1).executor": "Run",
+    "Spring Boot.EurekaServerApplication.executor": "Run",
+    "Spring Boot.ItemServiceApplication.executor": "Run",
+    "Spring Boot.OrderServiceApplication.executor": "Run",
+    "Spring Boot.UserServiceApplication.executor": "Run",
+    "git-widget-placeholder": "develop/feature/accountservice",
+    "jdk.selected.JAVA_MODULE": "temurin-17",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/A_Chuwa/final_chuwa",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "run.configurations.included.in.services": "true",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql",
+      "mongo",
+      "cassandra"
+    ]
   }
-}</component>
-  <component name="RunManager" selected="Spring Boot.UserServiceApplication">
-    <configuration name="PaymentServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <module name="PaymentService" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="org.example.paymentservice.PaymentServiceApplication" />
+}]]></component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="KtorApplicationConfigurationType" />
+        <option value="MicronautRunConfigurationType" />
+        <option value="QuarkusRunConfigurationType" />
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+  </component>
+  <component name="RunManager" selected="Spring Boot.AccountServiceApplication (1)">
+    <configuration name="APIGatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="APIGatewayService" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="org.example.microservices.APIGateway.APIGatewayApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <module name="UserService" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="org.example.microservices.UserServer.UserServiceApplication" />
+    <configuration name="AccountServiceApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="AccountService" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="org.example.accountservice.AccountServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EurekaServerApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="EurekaServer" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.codebase.EurekaServer.EurekaServerApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ItemServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="ItemService" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="org.example.itemservice.ItemServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OrderServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="OrderService" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="org.example.microservice.orderservice.OrderServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PaymentServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="PaymentService" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="org.example.paymentservice.PaymentServiceApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -104,46 +201,16 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="495d9cdd-826e-4fa8-bf26-34b05f2dc11f" name="Changes" comment="" />
-      <created>1755306888365</created>
+      <changelist id="82cbe5b4-0e37-430d-b50e-b208b5fee086" name="Changes" comment="" />
+      <created>1770767380397</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1755306888365</updated>
-      <workItem from="1755306889349" duration="2980000" />
-      <workItem from="1755356422521" duration="2630000" />
-      <workItem from="1755402318237" duration="10087000" />
-      <workItem from="1755996704065" duration="667000" />
-      <workItem from="1756342619039" duration="714000" />
-      <workItem from="1756885764933" duration="5024000" />
-      <workItem from="1757490671027" duration="1202000" />
-      <workItem from="1758426365476" duration="620000" />
-      <workItem from="1758933686661" duration="1745000" />
-      <workItem from="1759649504646" duration="310000" />
-      <workItem from="1766902177799" duration="2312000" />
-      <workItem from="1768373446014" duration="62000" />
-      <workItem from="1770682835505" duration="732000" />
-      <workItem from="1770696572653" duration="5811000" />
-      <workItem from="1770735819941" duration="7640000" />
-      <workItem from="1770761105953" duration="508000" />
-      <workItem from="1770761822997" duration="744000" />
+      <updated>1770767380397</updated>
+      <workItem from="1770767382137" duration="15712000" />
+      <workItem from="1770821942441" duration="7087000" />
+      <workItem from="1770830214732" duration="711000" />
+      <workItem from="1770838129224" duration="9468000" />
     </task>
-    <task id="LOCAL-00001" summary="initialized backend">
-      <option name="closed" value="true" />
-      <created>1755426897365</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1755426897365</updated>
-    </task>
-    <task id="LOCAL-00002" summary="initialized backend">
-      <option name="closed" value="true" />
-      <created>1770762562920</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1770762562920</updated>
-    </task>
-    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -159,9 +226,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="initialized backend" />
-    <option name="LAST_COMMIT_MESSAGE" value="initialized backend" />
   </component>
 </project>

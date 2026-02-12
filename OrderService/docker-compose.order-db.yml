@@ -1,0 +1,55 @@
+version: "3.9"
+
+services:
+  order-cassandra:
+    image: cassandra:4.1
+    container_name: order-cassandra
+    restart: unless-stopped
+    environment:
+      CASSANDRA_CLUSTER_NAME: "ShopCluster"
+      CASSANDRA_NUM_TOKENS: 16
+      CASSANDRA_DC: "dc1"
+      CASSANDRA_RACK: "rack1"
+      MAX_HEAP_SIZE: 1G
+      HEAP_NEWSIZE: 256M
+    ports:
+      - "9042:9042"     # CQL
+    volumes:
+      - order_cass_data:/var/lib/cassandra
+    healthcheck:
+      # Try a simple cqlsh describe; exit 0 only when ready
+      test: ["CMD-SHELL", "cqlsh -e 'DESCRIBE CLUSTER' >/dev/null 2>&1"]
+      interval: 15s
+      timeout: 10s
+      retries: 10
+    networks:
+      - shop-net
+
+  # one-shot init job (runs after healthcheck passes)
+  order-cassandra-init:
+    image: cassandra:4.1
+    container_name: order-cassandra-init
+    depends_on:
+      order-cassandra:
+        condition: service_healthy
+    volumes:
+      - ./initdb:/initdb:ro    # mount your *.cql files here
+    entrypoint: ["/bin/bash", "-lc"]
+    command: >
+      "
+      for f in /initdb/*.cql; do
+        echo Running $f;
+        cqlsh order-cassandra -e \"SOURCE '$${f}';\";
+      done
+      "
+    networks:
+      - shop-net
+    restart: "no"
+
+volumes:
+  order_cass_data:
+
+networks:
+  shop-net:
+    name: shop-net
+    driver: bridge

@@ -1,7 +1,0 @@
-D:\A_Chuwa\final_chuwa\OrderService\src\main\java\org\example\microservices\OrderService\Controller\OrderController.java
-D:\A_Chuwa\final_chuwa\OrderService\src\main\java\org\example\microservices\OrderService\Entity\OrderById.java
-D:\A_Chuwa\final_chuwa\OrderService\src\main\java\org\example\microservices\OrderService\Entity\OrderByUser.java
-D:\A_Chuwa\final_chuwa\OrderService\src\main\java\org\example\microservices\OrderService\Entity\OrderByUserKey.java
-D:\A_Chuwa\final_chuwa\OrderService\src\main\java\org\example\microservices\OrderService\Repository\OrdersByIdRepo.java
-D:\A_Chuwa\final_chuwa\OrderService\src\main\java\org\example\microservices\OrderService\Repository\OrdersByUserRepo.java
-D:\A_Chuwa\final_chuwa\OrderService\src\main\java\org\example\microservices\OrderService\Service\OrderService.java

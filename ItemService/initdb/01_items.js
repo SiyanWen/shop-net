@@ -1,23 +1,49 @@
 // runs once on first start
-db = db.getSiblingDB('catalogdb');
+db = db.getSiblingDB('itemdb');
 
 db.createCollection('items');
 
-db.items.createIndex({ sku: 1 }, { unique: true });
+db.items.createIndex({ itemId: 1 }, { unique: true });
 db.items.createIndex({ upc: 1 }, { unique: true, sparse: true });
-db.items.createIndex({ category: 1, status: 1 });
-db.items.createIndex({ "price.amount": 1 });
-db.items.createIndex({ name: "text", description: "text", tags: 1 });
+db.items.createIndex({ name: "text" });
 
-// seed sample
-db.items.insertOne({
-  sku: "SKU-12345",
-  name: "Wireless Headphones",
-  category: "Electronics/Audio/Headphones",
-  status: "ACTIVE",
-  price: { currency: "USD", amount: 199.99, list: 249.99 },
-  attributes: { color: "Black", bluetooth: "5.3" },
-  images: [{url: "https://cdn.example/1.jpg", alt: "Front"}],
-  createdAt: new Date(),
-  updatedAt: new Date()
-});
+// seed samples
+db.items.insertMany([
+  {
+    itemId: "ITEM-001",
+    name: "Wireless Headphones",
+    unitPrice: 199.99,
+    pictureUrls: [
+      "https://cdn.example.com/items/headphones-front.jpg",
+      "https://cdn.example.com/items/headphones-side.jpg"
+    ],
+    upc: "012345678901",
+    stockQty: 50,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    itemId: "ITEM-002",
+    name: "Mechanical Keyboard",
+    unitPrice: 89.99,
+    pictureUrls: [
+      "https://cdn.example.com/items/keyboard-top.jpg"
+    ],
+    upc: "012345678902",
+    stockQty: 120,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    itemId: "ITEM-003",
+    name: "USB-C Hub",
+    unitPrice: 45.00,
+    pictureUrls: [
+      "https://cdn.example.com/items/usb-hub.jpg"
+    ],
+    upc: "012345678903",
+    stockQty: 200,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  }
+]);
