@@ -33,11 +33,11 @@ CREATE TABLE IF NOT EXISTS user_roles (
 
 -- Insert users with role references
 INSERT INTO users (email, username, password, enabled, shipping_address, billing_address, payment_method) VALUES
-    ('abc@gmail.com', 'foo', '$2a$10$hashedpassword123456789012345678901234567890', true, '111 S Main St. LA CA 90000', '123 Fifth St. LA CA 90000', 'card'),
-    ('789@admin.com', 'admin_a', '$2a$10$hashedpassword123456789012345678901234567890', true, '111 S Main St. LA CA 90000', '123 Fifth St. LA CA 90000', 'paypal'),
-    ('john.doe@example.com', 'john_doe', '$2a$10$hashedpassword123456789012345678901234567890', true, '456 Oak Ave. NYC NY 10001', '456 Oak Ave. NYC NY 10001', 'card'),
-    ('jane.smith@example.com', 'jane_smith', '$2a$10$hashedpassword123456789012345678901234567890', true, '789 Pine Rd. Chicago IL 60601', '789 Pine Rd. Chicago IL 60601', 'paypal'),
-    ('bob.wilson@example.com', 'bob_wilson', '$2a$10$hashedpassword123456789012345678901234567890', true, '321 Elm Blvd. Houston TX 77001', '321 Elm Blvd. Houston TX 77001', 'card')
+    ('abc@gmail.com', 'foo', '$2a$10$cx4z7wDEH3OeEpvNULIR2.4fqmzcVEj4fu.xmmx1oLyuq1.v2S3uy', true, '111 S Main St. LA CA 90000', '123 Fifth St. LA CA 90000', 'card'),
+    ('789@admin.com', 'admin_a', '$2a$10$cx4z7wDEH3OeEpvNULIR2.4fqmzcVEj4fu.xmmx1oLyuq1.v2S3uy', true, '111 S Main St. LA CA 90000', '123 Fifth St. LA CA 90000', 'paypal'),
+    ('john.doe@example.com', 'john_doe', '$2a$10$cx4z7wDEH3OeEpvNULIR2.4fqmzcVEj4fu.xmmx1oLyuq1.v2S3uy', true, '456 Oak Ave. NYC NY 10001', '456 Oak Ave. NYC NY 10001', 'card'),
+    ('jane.smith@example.com', 'jane_smith', '$2a$10$cx4z7wDEH3OeEpvNULIR2.4fqmzcVEj4fu.xmmx1oLyuq1.v2S3uy', true, '789 Pine Rd. Chicago IL 60601', '789 Pine Rd. Chicago IL 60601', 'paypal'),
+    ('bob.wilson@example.com', 'bob_wilson', '$2a$10$cx4z7wDEH3OeEpvNULIR2.4fqmzcVEj4fu.xmmx1oLyuq1.v2S3uy', true, '321 Elm Blvd. Houston TX 77001', '321 Elm Blvd. Houston TX 77001', 'card')
 ON CONFLICT (email) DO NOTHING;
 
 -- Associate users with roles

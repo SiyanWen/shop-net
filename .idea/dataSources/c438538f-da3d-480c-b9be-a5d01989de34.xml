@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="itemdb@localhost">
+  <database-model serializer="dbm" dbms="MONGO" family-id="MONGO" format-version="4.53">
+    <root id="1">
+      <ServerVersion>7.0.23</ServerVersion>
+    </root>
+    <schema id="2" parent="1" name="admin"/>
+    <schema id="3" parent="1" name="config"/>
+    <schema id="4" parent="1" name="itemdb">
+      <Current>1</Current>
+      <LastIntrospectionLocalTimestamp>2026-02-11.17:27:54</LastIntrospectionLocalTimestamp>
+    </schema>
+    <schema id="5" parent="1" name="local"/>
+    <table id="6" parent="4" name="items"/>
+    <column id="7" parent="6" name="_id">
+      <Position>1</Position>
+      <StoredType>ObjectId|12s</StoredType>
+    </column>
+    <column id="8" parent="6" name="createdAt">
+      <Position>2</Position>
+      <StoredType>ISODate|91s</StoredType>
+    </column>
+    <column id="9" parent="6" name="itemId">
+      <Position>3</Position>
+      <StoredType>String|12s</StoredType>
+    </column>
+    <column id="10" parent="6" name="name">
+      <Position>4</Position>
+      <StoredType>String|12s</StoredType>
+    </column>
+    <column id="11" parent="6" name="pictureUrls">
+      <Position>5</Position>
+      <StoredType>Array|2003s</StoredType>
+    </column>
+    <column id="12" parent="6" name="unitPrice">
+      <Position>6</Position>
+      <StoredType>Double|8s</StoredType>
+    </column>
+    <column id="13" parent="6" name="upc">
+      <Position>7</Position>
+      <StoredType>String|12s</StoredType>
+    </column>
+    <column id="14" parent="6" name="updatedAt">
+      <Position>8</Position>
+      <StoredType>ISODate|91s</StoredType>
+    </column>
+  </database-model>
+</dataSource>
