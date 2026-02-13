@@ -12,6 +12,7 @@ import org.example.orderservice.entity.OrderById;
 import org.example.orderservice.entity.OrderByUser;
 import org.example.orderservice.entity.OrderByUserKey;
 import org.example.orderservice.entity.OrderItem;
+import org.example.orderservice.exception.InsufficientInventoryException;
 import org.example.orderservice.exception.InvalidOrderStateException;
 import org.example.orderservice.exception.OrderNotFoundException;
 import org.example.orderservice.repository.OrderByIdRepository;
@@ -65,7 +66,7 @@ public class OrderService {
                                 succeeded.getItemId(), rollbackEx.getMessage());
                     }
                 }
-                throw new RuntimeException(
+                throw new InsufficientInventoryException(
                         "Insufficient inventory for item " + dto.getItemId(), e);
             }
         }
