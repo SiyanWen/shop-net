@@ -6,7 +6,12 @@
       "Bash(javap:*)",
       "Bash(mvn clean package:*)",
       "Bash(ls \"D:\\\\A_Chuwa\\\\final_chuwa\\\\ItemService\\\\initdb\"\" 2>nul || echo \"Directory does not exist \")",
-      "Bash(dir:*)"
+      "Bash(dir:*)",
+      "Bash(.mvnw.cmd compile:*)",
+      "Bash(cmd /c \"mvnw.cmd compile -q\")",
+      "Bash(mvnw.cmd compile:*)",
+      "Bash(mvn compile:*)",
+      "Bash(git rm:*)"
     ]
   }
 }

@@ -29,6 +29,7 @@ public class User {
             inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id")
     )
     private Set<Role> roles;
+    private String address;
 
     public User() {
     }
@@ -84,4 +85,6 @@ public class User {
 
     public boolean isEnabled() { return enabled; }
     public void setEnabled(boolean enabled) { this.enabled = enabled; }
+    public String getAddress() { return address; }
+    public void setAddress(String address) { this.address = address; }
 }

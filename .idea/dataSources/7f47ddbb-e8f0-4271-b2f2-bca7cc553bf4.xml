@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<dataSource name="userdb@localhost">
+<dataSource name="paymentdb@localhost">
   <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.53">
     <root id="1">
       <DateStyle>mdy</DateStyle>
@@ -11,9 +11,9 @@
 4||10|c|G
 4||10|C|G
 4||10|T|G</Grants>
-      <IntrospectionStateNumber>754</IntrospectionStateNumber>
+      <IntrospectionStateNumber>746</IntrospectionStateNumber>
       <ServerVersion>16.10</ServerVersion>
-      <StartupTime>1770759524</StartupTime>
+      <StartupTime>1770875301</StartupTime>
       <TimeZones>true ACDT
 true ACSST
 false ACST
@@ -696,7 +696,7 @@ false localtime
 false posixrules
 </TimeZones>
     </root>
-    <database id="2" parent="1" name="userdb">
+    <database id="2" parent="1" name="paymentdb">
       <Current>1</Current>
       <Grants>11||10|C|G
 11||-9223372036854775808|U|G
@@ -707,61 +707,16 @@ false posixrules
 13276||10|C|G
 13276||-9223372036854775808|U|G
 13276||10|U|G</Grants>
-      <IntrospectionStateNumber>754</IntrospectionStateNumber>
+      <IntrospectionStateNumber>746</IntrospectionStateNumber>
       <ObjectId>16384</ObjectId>
-      <OwnerName>userapp</OwnerName>
+      <OwnerName>paymentapp</OwnerName>
     </database>
     <database id="3" parent="1" name="postgres">
       <Comment>default administrative connection database</Comment>
       <ObjectId>5</ObjectId>
-      <OwnerName>userapp</OwnerName>
+      <OwnerName>paymentapp</OwnerName>
     </database>
-    <role id="4" parent="1" name="pg_database_owner">
-      <ObjectId>6171</ObjectId>
-    </role>
-    <role id="5" parent="1" name="pg_read_all_data">
-      <ObjectId>6181</ObjectId>
-    </role>
-    <role id="6" parent="1" name="pg_write_all_data">
-      <ObjectId>6182</ObjectId>
-    </role>
-    <role id="7" parent="1" name="pg_monitor">
-      <ObjectId>3373</ObjectId>
-      <RoleGrants>3374
-3375
-3377</RoleGrants>
-    </role>
-    <role id="8" parent="1" name="pg_read_all_settings">
-      <ObjectId>3374</ObjectId>
-    </role>
-    <role id="9" parent="1" name="pg_read_all_stats">
-      <ObjectId>3375</ObjectId>
-    </role>
-    <role id="10" parent="1" name="pg_stat_scan_tables">
-      <ObjectId>3377</ObjectId>
-    </role>
-    <role id="11" parent="1" name="pg_read_server_files">
-      <ObjectId>4569</ObjectId>
-    </role>
-    <role id="12" parent="1" name="pg_write_server_files">
-      <ObjectId>4570</ObjectId>
-    </role>
-    <role id="13" parent="1" name="pg_execute_server_program">
-      <ObjectId>4571</ObjectId>
-    </role>
-    <role id="14" parent="1" name="pg_signal_backend">
-      <ObjectId>4200</ObjectId>
-    </role>
-    <role id="15" parent="1" name="pg_checkpoint">
-      <ObjectId>4544</ObjectId>
-    </role>
-    <role id="16" parent="1" name="pg_use_reserved_connections">
-      <ObjectId>4550</ObjectId>
-    </role>
-    <role id="17" parent="1" name="pg_create_subscription">
-      <ObjectId>6304</ObjectId>
-    </role>
-    <role id="18" parent="1" name="userapp">
+    <role id="4" parent="1" name="paymentapp">
       <BypassRls>1</BypassRls>
       <CanLogin>1</CanLogin>
       <CreateDb>1</CreateDb>
@@ -770,15 +725,60 @@ false posixrules
       <Replication>1</Replication>
       <SuperRole>1</SuperRole>
     </role>
+    <role id="5" parent="1" name="pg_checkpoint">
+      <ObjectId>4544</ObjectId>
+    </role>
+    <role id="6" parent="1" name="pg_create_subscription">
+      <ObjectId>6304</ObjectId>
+    </role>
+    <role id="7" parent="1" name="pg_database_owner">
+      <ObjectId>6171</ObjectId>
+    </role>
+    <role id="8" parent="1" name="pg_execute_server_program">
+      <ObjectId>4571</ObjectId>
+    </role>
+    <role id="9" parent="1" name="pg_monitor">
+      <ObjectId>3373</ObjectId>
+      <RoleGrants>3374
+3375
+3377</RoleGrants>
+    </role>
+    <role id="10" parent="1" name="pg_read_all_data">
+      <ObjectId>6181</ObjectId>
+    </role>
+    <role id="11" parent="1" name="pg_read_all_settings">
+      <ObjectId>3374</ObjectId>
+    </role>
+    <role id="12" parent="1" name="pg_read_all_stats">
+      <ObjectId>3375</ObjectId>
+    </role>
+    <role id="13" parent="1" name="pg_read_server_files">
+      <ObjectId>4569</ObjectId>
+    </role>
+    <role id="14" parent="1" name="pg_signal_backend">
+      <ObjectId>4200</ObjectId>
+    </role>
+    <role id="15" parent="1" name="pg_stat_scan_tables">
+      <ObjectId>3377</ObjectId>
+    </role>
+    <role id="16" parent="1" name="pg_use_reserved_connections">
+      <ObjectId>4550</ObjectId>
+    </role>
+    <role id="17" parent="1" name="pg_write_all_data">
+      <ObjectId>6182</ObjectId>
+    </role>
+    <role id="18" parent="1" name="pg_write_server_files">
+      <ObjectId>4570</ObjectId>
+    </role>
     <tablespace id="19" parent="1" name="pg_default">
       <ObjectId>1663</ObjectId>
       <StateNumber>1</StateNumber>
-      <OwnerName>userapp</OwnerName>
+      <OwnerName>paymentapp</OwnerName>
     </tablespace>
     <tablespace id="20" parent="1" name="pg_global">
       <ObjectId>1664</ObjectId>
       <StateNumber>1</StateNumber>
-      <OwnerName>userapp</OwnerName>
+      <OwnerName>paymentapp</OwnerName>
     </tablespace>
     <access-method id="21" parent="2" name="brin">
       <Comment>block range index (BRIN) access method</Comment>
@@ -4120,86 +4120,105 @@ false posixrules
     <schema id="262" parent="2" name="information_schema">
       <ObjectId>13276</ObjectId>
       <StateNumber>530</StateNumber>
-      <OwnerName>userapp</OwnerName>
+      <OwnerName>paymentapp</OwnerName>
     </schema>
     <schema id="263" parent="2" name="pg_catalog">
       <Comment>system catalog schema</Comment>
       <ObjectId>11</ObjectId>
       <StateNumber>524</StateNumber>
-      <OwnerName>userapp</OwnerName>
+      <OwnerName>paymentapp</OwnerName>
     </schema>
     <schema id="264" parent="2" name="public">
       <Comment>standard public schema</Comment>
       <Current>1</Current>
-      <IntrospectionStateNumber>754</IntrospectionStateNumber>
-      <LastIntrospectionLocalTimestamp>2026-02-11.00:24:11</LastIntrospectionLocalTimestamp>
+      <IntrospectionStateNumber>746</IntrospectionStateNumber>
+      <LastIntrospectionLocalTimestamp>2026-02-12.06:55:36</LastIntrospectionLocalTimestamp>
       <ObjectId>2200</ObjectId>
       <StateNumber>524</StateNumber>
       <OwnerName>pg_database_owner</OwnerName>
     </schema>
-    <sequence id="265" parent="264" name="roles_id_seq">
+    <table id="265" parent="264" name="payments">
       <ObjectId>16385</ObjectId>
-      <SequenceIdentity>1</SequenceIdentity>
-      <StartValue>1</StartValue>
       <StateNumber>732</StateNumber>
-      <StoredType>integer|0s</StoredType>
-      <OwnerName>userapp</OwnerName>
-    </sequence>
-    <sequence id="266" parent="264" name="users_id_seq">
-      <ObjectId>16394</ObjectId>
-      <SequenceIdentity>1</SequenceIdentity>
-      <StartValue>1</StartValue>
-      <StateNumber>735</StateNumber>
-      <StoredType>integer|0s</StoredType>
-      <OwnerName>userapp</OwnerName>
-    </sequence>
-    <table id="267" parent="264" name="roles">
-      <ObjectId>16386</ObjectId>
-      <StateNumber>736</StateNumber>
       <AccessMethodId>2</AccessMethodId>
-      <OwnerName>userapp</OwnerName>
+      <OwnerName>paymentapp</OwnerName>
     </table>
-    <table id="268" parent="264" name="user_roles">
-      <ObjectId>16405</ObjectId>
-      <StateNumber>736</StateNumber>
-      <AccessMethodId>2</AccessMethodId>
-      <OwnerName>userapp</OwnerName>
-    </table>
-    <table id="269" parent="264" name="users">
-      <ObjectId>16395</ObjectId>
-      <StateNumber>736</StateNumber>
-      <AccessMethodId>2</AccessMethodId>
-      <OwnerName>userapp</OwnerName>
-    </table>
-    <column id="270" parent="267" name="id">
-      <DefaultExpression>nextval(&apos;roles_id_seq&apos;::regclass)</DefaultExpression>
+    <column id="266" parent="265" name="payment_id">
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StateNumber>732</StateNumber>
-      <StoredType>integer|0s</StoredType>
-      <SequenceId>16385</SequenceId>
-      <TypeId>23</TypeId>
+      <StoredType>uuid|0s</StoredType>
+      <TypeId>2950</TypeId>
     </column>
-    <column id="271" parent="267" name="name">
+    <column id="267" parent="265" name="order_id">
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StateNumber>732</StateNumber>
-      <StoredType>varchar(60)|0s</StoredType>
+      <StoredType>uuid|0s</StoredType>
+      <TypeId>2950</TypeId>
+    </column>
+    <column id="268" parent="265" name="amount">
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+      <StateNumber>732</StateNumber>
+      <StoredType>numeric(12,2 digit)|0s</StoredType>
+      <TypeId>1700</TypeId>
+    </column>
+    <column id="269" parent="265" name="currency">
+      <DefaultExpression>&apos;USD&apos;::character varying</DefaultExpression>
+      <Position>4</Position>
+      <StateNumber>732</StateNumber>
+      <StoredType>varchar(3)|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <index id="272" parent="267" name="roles_pkey">
-      <ColNames>id</ColNames>
+    <column id="270" parent="265" name="status">
+      <DefaultExpression>&apos;PENDING&apos;::character varying</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>5</Position>
+      <StateNumber>732</StateNumber>
+      <StoredType>varchar(20)|0s</StoredType>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="271" parent="265" name="payment_method">
+      <Position>6</Position>
+      <StateNumber>732</StateNumber>
+      <StoredType>varchar(30)|0s</StoredType>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="272" parent="265" name="idempotency_key">
+      <NotNull>1</NotNull>
+      <Position>7</Position>
+      <StateNumber>732</StateNumber>
+      <StoredType>varchar(64)|0s</StoredType>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="273" parent="265" name="created_at">
+      <DefaultExpression>now()</DefaultExpression>
+      <Position>8</Position>
+      <StateNumber>732</StateNumber>
+      <StoredType>timestamp|0s</StoredType>
+      <TypeId>1114</TypeId>
+    </column>
+    <column id="274" parent="265" name="updated_at">
+      <DefaultExpression>now()</DefaultExpression>
+      <Position>9</Position>
+      <StateNumber>732</StateNumber>
+      <StoredType>timestamp|0s</StoredType>
+      <TypeId>1114</TypeId>
+    </column>
+    <index id="275" parent="265" name="payments_pkey">
+      <ColNames>payment_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16390</ObjectId>
+      <ObjectId>16392</ObjectId>
       <Primary>1</Primary>
       <StateNumber>732</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <index id="273" parent="267" name="roles_name_key">
-      <ColNames>name</ColNames>
+    <index id="276" parent="265" name="payments_idempotency_key_key">
+      <ColNames>idempotency_key</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16392</ObjectId>
+      <ObjectId>16394</ObjectId>
       <StateNumber>732</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
@@ -4207,158 +4226,33 @@ false posixrules
       <CollationIds>100</CollationIds>
       <CollationParentNames>pg_catalog</CollationParentNames>
     </index>
-    <key id="274" parent="267" name="roles_pkey">
-      <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16391</ObjectId>
-      <Primary>1</Primary>
-      <StateNumber>732</StateNumber>
-      <UnderlyingIndexId>16390</UnderlyingIndexId>
-    </key>
-    <key id="275" parent="267" name="roles_name_key">
+    <index id="277" parent="265" name="idx_payments_order_id">
+      <ColNames>order_id</ColNames>
+      <ObjectId>16396</ObjectId>
+      <StateNumber>733</StateNumber>
+      <AccessMethodId>403</AccessMethodId>
+    </index>
+    <index id="278" parent="265" name="idx_payments_idempotency_key">
+      <ColNames>idempotency_key</ColNames>
+      <ObjectId>16397</ObjectId>
+      <StateNumber>734</StateNumber>
+      <AccessMethodId>403</AccessMethodId>
+      <CollationNames>default</CollationNames>
+      <CollationIds>100</CollationIds>
+      <CollationParentNames>pg_catalog</CollationParentNames>
+    </index>
+    <key id="279" parent="265" name="payments_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16393</ObjectId>
+      <Primary>1</Primary>
       <StateNumber>732</StateNumber>
       <UnderlyingIndexId>16392</UnderlyingIndexId>
     </key>
-    <column id="276" parent="268" name="user_id">
-      <NotNull>1</NotNull>
-      <Position>1</Position>
-      <StateNumber>736</StateNumber>
-      <StoredType>bigint|0s</StoredType>
-      <TypeId>20</TypeId>
-    </column>
-    <column id="277" parent="268" name="role_id">
-      <NotNull>1</NotNull>
-      <Position>2</Position>
-      <StateNumber>736</StateNumber>
-      <StoredType>bigint|0s</StoredType>
-      <TypeId>20</TypeId>
-    </column>
-    <foreign-key id="278" parent="268" name="user_roles_user_id_fkey">
-      <ColNames>user_id</ColNames>
+    <key id="280" parent="265" name="payments_idempotency_key_key">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16410</ObjectId>
-      <OnDelete>cascade</OnDelete>
-      <StateNumber>736</StateNumber>
-      <RefKeyColPositions>1</RefKeyColPositions>
-      <RefTableId>16395</RefTableId>
-    </foreign-key>
-    <foreign-key id="279" parent="268" name="user_roles_role_id_fkey">
-      <ColNames>role_id</ColNames>
-      <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16415</ObjectId>
-      <OnDelete>cascade</OnDelete>
-      <StateNumber>736</StateNumber>
-      <RefKeyColPositions>1</RefKeyColPositions>
-      <RefTableId>16386</RefTableId>
-    </foreign-key>
-    <index id="280" parent="268" name="user_roles_pkey">
-      <ColNames>user_id
-role_id</ColNames>
-      <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16408</ObjectId>
-      <Primary>1</Primary>
-      <StateNumber>736</StateNumber>
-      <Unique>1</Unique>
-      <AccessMethodId>403</AccessMethodId>
-    </index>
-    <key id="281" parent="268" name="user_roles_pkey">
-      <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16409</ObjectId>
-      <Primary>1</Primary>
-      <StateNumber>736</StateNumber>
-      <UnderlyingIndexId>16408</UnderlyingIndexId>
-    </key>
-    <column id="282" parent="269" name="id">
-      <DefaultExpression>nextval(&apos;users_id_seq&apos;::regclass)</DefaultExpression>
-      <NotNull>1</NotNull>
-      <Position>1</Position>
-      <StateNumber>735</StateNumber>
-      <StoredType>integer|0s</StoredType>
-      <SequenceId>16394</SequenceId>
-      <TypeId>23</TypeId>
-    </column>
-    <column id="283" parent="269" name="email">
-      <NotNull>1</NotNull>
-      <Position>2</Position>
-      <StateNumber>735</StateNumber>
-      <StoredType>varchar(255)|0s</StoredType>
-      <TypeId>1043</TypeId>
-    </column>
-    <column id="284" parent="269" name="username">
-      <NotNull>1</NotNull>
-      <Position>3</Position>
-      <StateNumber>735</StateNumber>
-      <StoredType>varchar(255)|0s</StoredType>
-      <TypeId>1043</TypeId>
-    </column>
-    <column id="285" parent="269" name="password">
-      <NotNull>1</NotNull>
-      <Position>4</Position>
-      <StateNumber>735</StateNumber>
-      <StoredType>varchar(255)|0s</StoredType>
-      <TypeId>1043</TypeId>
-    </column>
-    <column id="286" parent="269" name="enabled">
-      <NotNull>1</NotNull>
-      <Position>5</Position>
-      <StateNumber>735</StateNumber>
-      <StoredType>boolean|0s</StoredType>
-      <TypeId>16</TypeId>
-    </column>
-    <column id="287" parent="269" name="shipping_address">
-      <NotNull>1</NotNull>
-      <Position>6</Position>
-      <StateNumber>735</StateNumber>
-      <StoredType>varchar(255)|0s</StoredType>
-      <TypeId>1043</TypeId>
-    </column>
-    <column id="288" parent="269" name="billing_address">
-      <NotNull>1</NotNull>
-      <Position>7</Position>
-      <StateNumber>735</StateNumber>
-      <StoredType>varchar(255)|0s</StoredType>
-      <TypeId>1043</TypeId>
-    </column>
-    <column id="289" parent="269" name="payment_method">
-      <NotNull>1</NotNull>
-      <Position>8</Position>
-      <StateNumber>735</StateNumber>
-      <StoredType>varchar(255)|0s</StoredType>
-      <TypeId>1043</TypeId>
-    </column>
-    <index id="290" parent="269" name="users_pkey">
-      <ColNames>id</ColNames>
-      <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16401</ObjectId>
-      <Primary>1</Primary>
-      <StateNumber>735</StateNumber>
-      <Unique>1</Unique>
-      <AccessMethodId>403</AccessMethodId>
-    </index>
-    <index id="291" parent="269" name="users_email_key">
-      <ColNames>email</ColNames>
-      <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16403</ObjectId>
-      <StateNumber>735</StateNumber>
-      <Unique>1</Unique>
-      <AccessMethodId>403</AccessMethodId>
-      <CollationNames>default</CollationNames>
-      <CollationIds>100</CollationIds>
-      <CollationParentNames>pg_catalog</CollationParentNames>
-    </index>
-    <key id="292" parent="269" name="users_pkey">
-      <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16402</ObjectId>
-      <Primary>1</Primary>
-      <StateNumber>735</StateNumber>
-      <UnderlyingIndexId>16401</UnderlyingIndexId>
-    </key>
-    <key id="293" parent="269" name="users_email_key">
-      <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16404</ObjectId>
-      <StateNumber>735</StateNumber>
-      <UnderlyingIndexId>16403</UnderlyingIndexId>
+      <ObjectId>16395</ObjectId>
+      <StateNumber>732</StateNumber>
+      <UnderlyingIndexId>16394</UnderlyingIndexId>
     </key>
   </database-model>
 </dataSource>

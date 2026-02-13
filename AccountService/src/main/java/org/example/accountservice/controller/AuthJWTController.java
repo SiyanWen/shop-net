@@ -118,6 +118,7 @@ public class AuthJWTController {
 
         user.setRoles(roles);
         user.setEnabled(true);
+        user.setAddress(signUpDto.getAddress());
         userRepository.save(user);
 
         logger.info("User registered successfully");
