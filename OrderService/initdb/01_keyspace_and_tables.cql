@@ -4,14 +4,21 @@ CREATE KEYSPACE IF NOT EXISTS shop_ks
 
 USE shop_ks;
 
--- Query tables (from earlier design)
+-- User-defined type for order items
+CREATE TYPE IF NOT EXISTS order_item (
+    name text,
+    quantity int,
+    price decimal
+);
+
+-- Query tables
 CREATE TABLE IF NOT EXISTS orders_by_id (
                                             order_id uuid PRIMARY KEY,
                                             user_id uuid,
                                             created_at timestamp,
                                             status text,
                                             currency text,
-                                            items list<frozen<tuple<text, int, decimal>>>,
+                                            items list<frozen<order_item>>,
                                             subtotal decimal,
                                             tax decimal,
                                             shipping_fee decimal,
@@ -40,7 +47,7 @@ VALUES (
     '2025-06-01T10:30:00Z',
     'DELIVERED',
     'USD',
-    [('Wireless Mouse', 2, 25.99), ('USB-C Hub', 1, 45.00)],
+    [{name: 'Wireless Mouse', quantity: 2, price: 25.99}, {name: 'USB-C Hub', quantity: 1, price: 45.00}],
     96.98,
     7.76,
     5.99,
@@ -58,7 +65,7 @@ VALUES (
     '2025-07-15T14:00:00Z',
     'SHIPPED',
     'USD',
-    [('Mechanical Keyboard', 1, 89.99)],
+    [{name: 'Mechanical Keyboard', quantity: 1, price: 89.99}],
     89.99,
     7.20,
     0.00,
@@ -76,7 +83,7 @@ VALUES (
     '2025-08-20T09:15:00Z',
     'PENDING',
     'USD',
-    [('Monitor Stand', 1, 34.50), ('Webcam HD', 1, 59.99), ('Desk Lamp', 2, 22.00)],
+    [{name: 'Monitor Stand', quantity: 1, price: 34.50}, {name: 'Webcam HD', quantity: 1, price: 59.99}, {name: 'Desk Lamp', quantity: 2, price: 22.00}],
     138.49,
     11.08,
     5.99,
