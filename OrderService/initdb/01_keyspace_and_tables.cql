@@ -6,6 +6,7 @@ USE shop_ks;
 
 -- User-defined type for order items
 CREATE TYPE IF NOT EXISTS order_item (
+    item_id text,
     name text,
     quantity int,
     price decimal
@@ -47,7 +48,7 @@ VALUES (
     '2025-06-01T10:30:00Z',
     'DELIVERED',
     'USD',
-    [{name: 'Wireless Mouse', quantity: 2, price: 25.99}, {name: 'USB-C Hub', quantity: 1, price: 45.00}],
+    [{item_id: 'ITEM-001', name: 'Wireless Mouse', quantity: 2, price: 25.99}, {item_id: 'ITEM-002', name: 'USB-C Hub', quantity: 1, price: 45.00}],
     96.98,
     7.76,
     5.99,
@@ -65,7 +66,7 @@ VALUES (
     '2025-07-15T14:00:00Z',
     'SHIPPED',
     'USD',
-    [{name: 'Mechanical Keyboard', quantity: 1, price: 89.99}],
+    [{item_id: 'ITEM-003', name: 'Mechanical Keyboard', quantity: 1, price: 89.99}],
     89.99,
     7.20,
     0.00,
@@ -83,7 +84,7 @@ VALUES (
     '2025-08-20T09:15:00Z',
     'PENDING',
     'USD',
-    [{name: 'Monitor Stand', quantity: 1, price: 34.50}, {name: 'Webcam HD', quantity: 1, price: 59.99}, {name: 'Desk Lamp', quantity: 2, price: 22.00}],
+    [{item_id: 'ITEM-004', name: 'Monitor Stand', quantity: 1, price: 34.50}, {item_id: 'ITEM-005', name: 'Webcam HD', quantity: 1, price: 59.99}, {item_id: 'ITEM-006', name: 'Desk Lamp', quantity: 2, price: 22.00}],
     138.49,
     11.08,
     5.99,

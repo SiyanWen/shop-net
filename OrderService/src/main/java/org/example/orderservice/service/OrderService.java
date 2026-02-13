@@ -1,7 +1,9 @@
 package org.example.orderservice.service;
 
+import feign.FeignException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.example.orderservice.client.ItemServiceClient;
 import org.example.orderservice.dto.CreateOrderRequest;
 import org.example.orderservice.dto.OrderEvent;
 import org.example.orderservice.dto.OrderItemDto;
@@ -20,7 +22,9 @@ import org.springframework.stereotype.Service;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.time.Instant;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 @Service
@@ -35,13 +39,39 @@ public class OrderService {
     private final OrderByIdRepository orderByIdRepository;
     private final OrderByUserRepository orderByUserRepository;
     private final KafkaTemplate<String, Object> kafkaTemplate;
+    private final ItemServiceClient itemServiceClient;
 
     public OrderById createOrder(CreateOrderRequest request) {
         UUID orderId = UUID.randomUUID();
         Instant now = Instant.now();
 
+        // Decrement inventory for each item via ItemService
+        List<OrderItemDto> succeededItems = new ArrayList<>();
+        for (OrderItemDto dto : request.getItems()) {
+            try {
+                itemServiceClient.updateInventory(dto.getItemId(),
+                        Map.of("quantity", -dto.getQuantity()));
+                succeededItems.add(dto);
+            } catch (FeignException e) {
+                log.error("Failed to decrement inventory for item {}: {}",
+                        dto.getItemId(), e.getMessage());
+                // Roll back already-decremented items
+                for (OrderItemDto succeeded : succeededItems) {
+                    try {
+                        itemServiceClient.updateInventory(succeeded.getItemId(),
+                                Map.of("quantity", succeeded.getQuantity()));
+                    } catch (FeignException rollbackEx) {
+                        log.error("Failed to roll back inventory for item {}: {}",
+                                succeeded.getItemId(), rollbackEx.getMessage());
+                    }
+                }
+                throw new RuntimeException(
+                        "Insufficient inventory for item " + dto.getItemId(), e);
+            }
+        }
+
         List<OrderItem> items = request.getItems().stream()
-                .map(dto -> new OrderItem(dto.getName(), dto.getQuantity(), dto.getPrice()))
+                .map(dto -> new OrderItem(dto.getItemId(), dto.getName(), dto.getQuantity(), dto.getPrice()))
                 .toList();
 
         BigDecimal subtotal = request.getItems().stream()

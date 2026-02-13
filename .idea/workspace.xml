@@ -5,56 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="82cbe5b4-0e37-430d-b50e-b208b5fee086" name="Changes" comment="Completed payment service, filled order service">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/7f47ddbb-e8f0-4271-b2f2-bca7cc553bf4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/7f47ddbb-e8f0-4271-b2f2-bca7cc553bf4/storage_v2/_src_/database/paymentdb.BNXX-g.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/7f47ddbb-e8f0-4271-b2f2-bca7cc553bf4/storage_v2/_src_/database/paymentdb.BNXX-g/schema/public.abK9xQ.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OrderService/src/main/java/org/example/orderservice/config/KafkaConsumerConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OrderService/src/main/java/org/example/orderservice/config/KafkaProducerConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OrderService/src/main/java/org/example/orderservice/consumer/PaymentEventConsumer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OrderService/src/main/java/org/example/orderservice/controller/OrderController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OrderService/src/main/java/org/example/orderservice/dto/CreateOrderRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OrderService/src/main/java/org/example/orderservice/dto/OrderEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OrderService/src/main/java/org/example/orderservice/dto/OrderItemDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OrderService/src/main/java/org/example/orderservice/dto/PaymentEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OrderService/src/main/java/org/example/orderservice/dto/UpdateOrderRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OrderService/src/main/java/org/example/orderservice/entity/OrderById.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OrderService/src/main/java/org/example/orderservice/entity/OrderByUser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OrderService/src/main/java/org/example/orderservice/entity/OrderByUserKey.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OrderService/src/main/java/org/example/orderservice/entity/OrderItem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OrderService/src/main/java/org/example/orderservice/exception/InvalidOrderStateException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OrderService/src/main/java/org/example/orderservice/exception/OrderNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OrderService/src/main/java/org/example/orderservice/repository/OrderByIdRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OrderService/src/main/java/org/example/orderservice/repository/OrderByUserRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OrderService/src/main/java/org/example/orderservice/service/OrderService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PaymentService/docker-compose.payment-db.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PaymentService/initdb/01_schema.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PaymentService/src/main/java/org/example/paymentservice/config/KafkaProducerConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PaymentService/src/main/java/org/example/paymentservice/controller/PaymentController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PaymentService/src/main/java/org/example/paymentservice/dto/PaymentEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PaymentService/src/main/java/org/example/paymentservice/dto/PaymentRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PaymentService/src/main/java/org/example/paymentservice/dto/PaymentUpdateRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PaymentService/src/main/java/org/example/paymentservice/entity/Payment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PaymentService/src/main/java/org/example/paymentservice/exception/InvalidPaymentStateException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PaymentService/src/main/java/org/example/paymentservice/exception/PaymentNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PaymentService/src/main/java/org/example/paymentservice/repository/PaymentRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PaymentService/src/main/java/org/example/paymentservice/service/PaymentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.claude/settings.local.json" beforeDir="false" afterPath="$PROJECT_DIR$/.claude/settings.local.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b239cc3a-2fc4-4350-aa3f-5e631695a7ed.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b239cc3a-2fc4-4350-aa3f-5e631695a7ed.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/7f47ddbb-e8f0-4271-b2f2-bca7cc553bf4.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/7f47ddbb-e8f0-4271-b2f2-bca7cc553bf4.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccountService/initdb/01_schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/AccountService/initdb/01_schema.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccountService/src/main/java/org/example/accountservice/controller/AuthJWTController.java" beforeDir="false" afterPath="$PROJECT_DIR$/AccountService/src/main/java/org/example/accountservice/controller/AuthJWTController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccountService/src/main/java/org/example/accountservice/entity/security/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/AccountService/src/main/java/org/example/accountservice/entity/security/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccountService/src/main/java/org/example/accountservice/payload/security/SignUpDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/AccountService/src/main/java/org/example/accountservice/payload/security/SignUpDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccountService/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/AccountService/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ItemService/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/ItemService/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/OrderService/initdb/01_keyspace_and_tables.cql" beforeDir="false" afterPath="$PROJECT_DIR$/OrderService/initdb/01_keyspace_and_tables.cql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/OrderService/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/OrderService/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OrderService/src/main/java/org/example/orderservice/OrderServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/OrderService/src/main/java/org/example/orderservice/OrderServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OrderService/src/main/java/org/example/orderservice/config/KafkaConsumerConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/OrderService/src/main/java/org/example/orderservice/config/KafkaConsumerConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OrderService/src/main/java/org/example/orderservice/controller/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/OrderService/src/main/java/org/example/orderservice/controller/OrderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OrderService/src/main/java/org/example/orderservice/dto/OrderItemDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/OrderService/src/main/java/org/example/orderservice/dto/OrderItemDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OrderService/src/main/java/org/example/orderservice/entity/OrderItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/OrderService/src/main/java/org/example/orderservice/entity/OrderItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OrderService/src/main/java/org/example/orderservice/service/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/OrderService/src/main/java/org/example/orderservice/service/OrderService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/OrderService/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/OrderService/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PaymentService/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/PaymentService/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PaymentService/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/PaymentService/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PaymentService/src/main/java/org/example/paymentservice/service/PaymentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/PaymentService/src/main/java/org/example/paymentservice/service/PaymentService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,48 +65,51 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Spring Boot.APIGatewayApplication (1).executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.APIGatewayApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.AccountServiceApplication (1).executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.AccountServiceApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.EurekaServerApplication (1).executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.EurekaServerApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.ItemServiceApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.OrderServiceApplication (1).executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.OrderServiceApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.PaymentServiceApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.UserServiceApplication.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;develop/feature/paymentservice&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;temurin-17&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/A_Chuwa/final_chuwa&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;run.configurations.included.in.services&quot;: &quot;true&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Spring Boot.APIGatewayApplication (1).executor": "Run",
+    "Spring Boot.APIGatewayApplication.executor": "Run",
+    "Spring Boot.AccountServiceApplication (1).executor": "Run",
+    "Spring Boot.AccountServiceApplication.executor": "Run",
+    "Spring Boot.EurekaServerApplication (1).executor": "Run",
+    "Spring Boot.EurekaServerApplication.executor": "Run",
+    "Spring Boot.ItemServiceApplication.executor": "Run",
+    "Spring Boot.OrderServiceApplication (1).executor": "Run",
+    "Spring Boot.OrderServiceApplication.executor": "Run",
+    "Spring Boot.PaymentServiceApplication.executor": "Run",
+    "Spring Boot.UserServiceApplication.executor": "Run",
+    "git-widget-placeholder": "develop/feature/orderservice",
+    "jdk.selected.JAVA_MODULE": "temurin-17",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/A_Chuwa/final_chuwa",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "run.configurations.included.in.services": "true",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mongo&quot;,
-      &quot;cassandra&quot;,
-      &quot;postgresql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mongo",
+      "cassandra",
+      "postgresql"
     ]
   }
-}</component>
+}]]></component>
+  <component name="ReactorSettings">
+    <option name="notificationShown" value="true" />
+  </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="org.example.itemservice" />
