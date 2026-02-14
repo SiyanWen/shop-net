@@ -14,13 +14,55 @@ spring:
         - id: item-service
           uri: lb://ItemService
           predicates:
-            - Path=/api/v1/item/**
+            - Path=/api/items/**
+        - id: order-service
+          uri: lb://OrderService
+          predicates:
+            - Path=/api/orders/**
         - id: payment-service
           uri: lb://PaymentService
           predicates:
-            - Path=/api/v1/payment/**
+            - Path=/api/payments/**
+
+        # API docs routes for Swagger aggregation
+        - id: account-service-api-docs
+          uri: lb://AccountService
+          predicates:
+            - Path=/account/v3/api-docs/**
+          filters:
+            - StripPrefix=1
+        - id: item-service-api-docs
+          uri: lb://ItemService
+          predicates:
+            - Path=/item/v3/api-docs/**
+          filters:
+            - StripPrefix=1
+        - id: order-service-api-docs
+          uri: lb://OrderService
+          predicates:
+            - Path=/order/v3/api-docs/**
+          filters:
+            - StripPrefix=1
+        - id: payment-service-api-docs
+          uri: lb://PaymentService
+          predicates:
+            - Path=/payment/v3/api-docs/**
+          filters:
+            - StripPrefix=1
 
 eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka/
+
+springdoc:
+  swagger-ui:
+    urls:
+      - name: Account Service
+        url: /account/v3/api-docs
+      - name: Item Service
+        url: /item/v3/api-docs
+      - name: Order Service
+        url: /order/v3/api-docs
+      - name: Payment Service
+        url: /payment/v3/api-docs

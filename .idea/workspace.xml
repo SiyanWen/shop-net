@@ -4,53 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="82cbe5b4-0e37-430d-b50e-b208b5fee086" name="Changes" comment="Completed payment service, filled order service">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/7f47ddbb-e8f0-4271-b2f2-bca7cc553bf4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/7f47ddbb-e8f0-4271-b2f2-bca7cc553bf4/storage_v2/_src_/database/paymentdb.BNXX-g.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/7f47ddbb-e8f0-4271-b2f2-bca7cc553bf4/storage_v2/_src_/database/paymentdb.BNXX-g/schema/public.abK9xQ.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OrderService/src/main/java/org/example/orderservice/config/KafkaConsumerConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OrderService/src/main/java/org/example/orderservice/config/KafkaProducerConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OrderService/src/main/java/org/example/orderservice/consumer/PaymentEventConsumer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OrderService/src/main/java/org/example/orderservice/controller/OrderController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OrderService/src/main/java/org/example/orderservice/dto/CreateOrderRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OrderService/src/main/java/org/example/orderservice/dto/OrderEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OrderService/src/main/java/org/example/orderservice/dto/OrderItemDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OrderService/src/main/java/org/example/orderservice/dto/PaymentEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OrderService/src/main/java/org/example/orderservice/dto/UpdateOrderRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OrderService/src/main/java/org/example/orderservice/entity/OrderById.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OrderService/src/main/java/org/example/orderservice/entity/OrderByUser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OrderService/src/main/java/org/example/orderservice/entity/OrderByUserKey.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OrderService/src/main/java/org/example/orderservice/entity/OrderItem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OrderService/src/main/java/org/example/orderservice/exception/InvalidOrderStateException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OrderService/src/main/java/org/example/orderservice/exception/OrderNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OrderService/src/main/java/org/example/orderservice/repository/OrderByIdRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OrderService/src/main/java/org/example/orderservice/repository/OrderByUserRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OrderService/src/main/java/org/example/orderservice/service/OrderService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PaymentService/docker-compose.payment-db.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PaymentService/initdb/01_schema.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PaymentService/src/main/java/org/example/paymentservice/config/KafkaProducerConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PaymentService/src/main/java/org/example/paymentservice/controller/PaymentController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PaymentService/src/main/java/org/example/paymentservice/dto/PaymentEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PaymentService/src/main/java/org/example/paymentservice/dto/PaymentRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PaymentService/src/main/java/org/example/paymentservice/dto/PaymentUpdateRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PaymentService/src/main/java/org/example/paymentservice/entity/Payment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PaymentService/src/main/java/org/example/paymentservice/exception/InvalidPaymentStateException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PaymentService/src/main/java/org/example/paymentservice/exception/PaymentNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PaymentService/src/main/java/org/example/paymentservice/repository/PaymentRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PaymentService/src/main/java/org/example/paymentservice/service/PaymentService.java" afterDir="false" />
+    <list default="true" id="82cbe5b4-0e37-430d-b50e-b208b5fee086" name="Changes" comment="lock inventory function">
       <change beforePath="$PROJECT_DIR$/.claude/settings.local.json" beforeDir="false" afterPath="$PROJECT_DIR$/.claude/settings.local.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b239cc3a-2fc4-4350-aa3f-5e631695a7ed.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b239cc3a-2fc4-4350-aa3f-5e631695a7ed.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccountService/initdb/01_schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/AccountService/initdb/01_schema.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/APIGatewayService/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/APIGatewayService/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/APIGatewayService/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/APIGatewayService/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AccountService/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/AccountService/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AccountService/src/main/java/org/example/accountservice/config/security/SecurityDBJWTConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/AccountService/src/main/java/org/example/accountservice/config/security/SecurityDBJWTConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AccountService/src/main/java/org/example/accountservice/controller/AuthJWTController.java" beforeDir="false" afterPath="$PROJECT_DIR$/AccountService/src/main/java/org/example/accountservice/controller/AuthJWTController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AccountService/src/main/java/org/example/accountservice/entity/security/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/AccountService/src/main/java/org/example/accountservice/entity/security/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AccountService/src/main/java/org/example/accountservice/payload/security/SignUpDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/AccountService/src/main/java/org/example/accountservice/payload/security/SignUpDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AccountService/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/AccountService/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ItemService/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ItemService/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ItemService/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/ItemService/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrderService/initdb/01_keyspace_and_tables.cql" beforeDir="false" afterPath="$PROJECT_DIR$/OrderService/initdb/01_keyspace_and_tables.cql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/OrderService/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/OrderService/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/OrderService/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/OrderService/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PaymentService/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/PaymentService/pom.xml" afterDir="false" />
@@ -121,7 +87,7 @@
     &quot;Spring Boot.OrderServiceApplication.executor&quot;: &quot;Run&quot;,
     &quot;Spring Boot.PaymentServiceApplication.executor&quot;: &quot;Run&quot;,
     &quot;Spring Boot.UserServiceApplication.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;develop/feature/paymentservice&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;develop/feature/orderservice&quot;,
     &quot;jdk.selected.JAVA_MODULE&quot;: &quot;temurin-17&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;D:/A_Chuwa/final_chuwa&quot;,
@@ -144,6 +110,9 @@
     ]
   }
 }</component>
+  <component name="ReactorSettings">
+    <option name="notificationShown" value="true" />
+  </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="org.example.itemservice" />
@@ -225,6 +194,9 @@
       <workItem from="1770838129224" duration="26614000" />
       <workItem from="1770929027082" duration="11447000" />
       <workItem from="1770941403796" duration="381000" />
+      <workItem from="1771020569926" duration="3130000" />
+      <workItem from="1771023858513" duration="224000" />
+      <workItem from="1771024214293" duration="5258000" />
     </task>
     <task id="LOCAL-00001" summary="account service (signin, signup), itemservice started">
       <option name="closed" value="true" />
@@ -242,7 +214,23 @@
       <option name="project" value="LOCAL" />
       <updated>1770863574054</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="order service complete">
+      <option name="closed" value="true" />
+      <created>1770965426265</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1770965426265</updated>
+    </task>
+    <task id="LOCAL-00004" summary="lock inventory function">
+      <option name="closed" value="true" />
+      <created>1771025403236</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1771025403236</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -263,6 +251,8 @@
     <MESSAGE value="account service (signin, signup), itemservice started" />
     <MESSAGE value="temservice 2 APIs" />
     <MESSAGE value="Completed payment service, filled order service" />
-    <option name="LAST_COMMIT_MESSAGE" value="Completed payment service, filled order service" />
+    <MESSAGE value="order service complete" />
+    <MESSAGE value="lock inventory function" />
+    <option name="LAST_COMMIT_MESSAGE" value="lock inventory function" />
   </component>
 </project>

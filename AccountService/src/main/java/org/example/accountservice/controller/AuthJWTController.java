@@ -103,6 +103,8 @@ public class AuthJWTController {
         user.setUserame(signUpDto.getUsername());
         user.setEmail(signUpDto.getEmail());
         user.setPassword(passwordEncoder.encode(signUpDto.getPassword()));
+        user.setShippingAddress(signUpDto.getShippingAddress());
+        user.setEnabled(true);
 
         Set<Role> roles = new HashSet<>();
         Set<String> requestedRoles = signUpDto.getRole();
@@ -117,8 +119,6 @@ public class AuthJWTController {
         }
 
         user.setRoles(roles);
-        user.setEnabled(true);
-        user.setAddress(signUpDto.getAddress());
         userRepository.save(user);
 
         logger.info("User registered successfully");

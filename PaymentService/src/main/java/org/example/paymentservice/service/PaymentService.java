@@ -13,6 +13,7 @@ import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.Optional;
 import java.util.UUID;
@@ -43,7 +44,7 @@ public class PaymentService {
                 .orderId(request.getOrderId())
                 .amount(request.getAmount())
                 .currency(request.getCurrency() != null ? request.getCurrency() : "USD")
-                .status("PENDING")
+                .status(request.getAmount().compareTo(BigDecimal.valueOf(100)) < 0 ? "COMPLETED" : "PENDING")
                 .paymentMethod(request.getPaymentMethod())
                 .idempotencyKey(idempotencyKey)
                 .build();

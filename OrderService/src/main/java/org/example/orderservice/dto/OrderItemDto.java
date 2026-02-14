@@ -12,6 +12,9 @@ import java.math.BigDecimal;
 public class OrderItemDto {
 
     @NotBlank
+    private String itemId;
+
+    @NotBlank
     private String name;
 
     @Min(1)

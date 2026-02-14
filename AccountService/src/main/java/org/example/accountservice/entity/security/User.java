@@ -2,6 +2,7 @@ package org.example.accountservice.entity.security;
 
 import jakarta.persistence.*;
 import java.util.Set;
+import java.util.UUID;
 
 /**
  * @author b1go
@@ -16,8 +17,8 @@ import java.util.Set;
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private UUID id;
     private String email;
     private String username;
     private String password;
@@ -29,12 +30,12 @@ public class User {
             inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id")
     )
     private Set<Role> roles;
-    private String address;
+    private String shippingAddress;
 
     public User() {
     }
 
-    public User(long id, String email, String username, String password, Set<Role> roles, boolean enabled) {
+    public User(UUID id, String email, String username, String password, Set<Role> roles, boolean enabled) {
         this.id = id;
         this.email = email;
         this.username = username;
@@ -43,11 +44,11 @@ public class User {
         this.enabled = enabled;
     }
 
-    public long getId() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 
@@ -85,6 +86,6 @@ public class User {
 
     public boolean isEnabled() { return enabled; }
     public void setEnabled(boolean enabled) { this.enabled = enabled; }
-    public String getAddress() { return address; }
-    public void setAddress(String address) { this.address = address; }
+    public String getShippingAddress() { return shippingAddress; }
+    public void setShippingAddress(String address) { this.shippingAddress = address; }
 }
