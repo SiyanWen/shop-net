@@ -8,7 +8,7 @@
     <schema id="3" parent="1" name="config"/>
     <schema id="4" parent="1" name="itemdb">
       <Current>1</Current>
-      <LastIntrospectionLocalTimestamp>2026-02-11.17:27:54</LastIntrospectionLocalTimestamp>
+      <LastIntrospectionLocalTimestamp>2026-02-14.15:51:27</LastIntrospectionLocalTimestamp>
     </schema>
     <schema id="5" parent="1" name="local"/>
     <table id="6" parent="4" name="items"/>
@@ -32,16 +32,20 @@
       <Position>5</Position>
       <StoredType>Array|2003s</StoredType>
     </column>
-    <column id="12" parent="6" name="unitPrice">
+    <column id="12" parent="6" name="stockQty">
       <Position>6</Position>
+      <StoredType>Int32|4s</StoredType>
+    </column>
+    <column id="13" parent="6" name="unitPrice">
+      <Position>7</Position>
       <StoredType>Double|8s</StoredType>
     </column>
-    <column id="13" parent="6" name="upc">
-      <Position>7</Position>
+    <column id="14" parent="6" name="upc">
+      <Position>8</Position>
       <StoredType>String|12s</StoredType>
     </column>
-    <column id="14" parent="6" name="updatedAt">
-      <Position>8</Position>
+    <column id="15" parent="6" name="updatedAt">
+      <Position>9</Position>
       <StoredType>ISODate|91s</StoredType>
     </column>
   </database-model>

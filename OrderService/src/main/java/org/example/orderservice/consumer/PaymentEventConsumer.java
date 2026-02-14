@@ -19,7 +19,12 @@ public class PaymentEventConsumer {
         log.info("Received payment event: paymentId={}, orderId={}, status={}",
                 event.getPaymentId(), event.getOrderId(), event.getStatus());
 
-        if ("COMPLETED".equals(event.getStatus())) {
+        if ("PENDING".equals(event.getStatus())) {
+            orderService.markOrderPending(
+                    event.getOrderId(),
+                    event.getPaymentId().toString()
+            );
+        } else if ("COMPLETED".equals(event.getStatus())) {
             orderService.markOrderPaid(
                     event.getOrderId(),
                     event.getPaymentId().toString()

@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -123,5 +124,16 @@ public class AuthJWTController {
 
         logger.info("User registered successfully");
         return new ResponseEntity<>("User registered successfully", HttpStatus.CREATED);
+    }
+
+    @GetMapping("/user")
+    public ResponseEntity<?> getUserByUsername(@RequestParam String username) {
+        return userRepository.findByUsernameOrEmail(username, username)
+                .map(user -> ResponseEntity.ok(Map.of(
+                        "id", user.getId(),
+                        "username", user.getUserame(),
+                        "email", user.getEmail()
+                )))
+                .orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).build());
     }
 }

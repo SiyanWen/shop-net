@@ -1,26 +1,6 @@
 version: '3.9'
 
 services:
-  payment-postgres:
-    image: postgres:16
-    container_name: payment-postgres
-    environment:
-      POSTGRES_USER: paymentapp
-      POSTGRES_PASSWORD: paymentpass
-      POSTGRES_DB: paymentdb
-    ports:
-      - "5434:5432"
-    volumes:
-      - payment-pg-data:/var/lib/postgresql/data
-      - ./initdb:/docker-entrypoint-initdb.d
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U paymentapp -d paymentdb"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
-    networks:
-      - shop-net
-
   payment-kafka:
     image: apache/kafka:3.7.0
     container_name: payment-kafka
@@ -53,9 +33,6 @@ services:
       - payment-kafka
     networks:
       - shop-net
-
-volumes:
-  payment-pg-data:
 
 networks:
   shop-net:

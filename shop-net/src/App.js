@@ -3,13 +3,14 @@ import { useState } from "react";
 import FoodList from "./components/FoodList";
 import LoginForm from "./components/LoginForm";
 import MyCart from "./components/MyCart";
+import MyOrders from "./components/MyOrders";
 import SignupForm from "./components/SignupForm";
 
 const { Header, Content } = Layout;
 const { Title } = Typography;
 
 function App() {
-  const [authed, setAuthed] = useState(false);
+  const [authed, setAuthed] = useState(!!localStorage.getItem("token"));
 
   return (
     <Layout style={{ height: "100vh" }}>
@@ -24,7 +25,7 @@ function App() {
           >
             Online Order
           </Title>
-          <div>{authed ? <MyCart /> : <SignupForm />}</div>
+          <div>{authed ? <><MyCart /><MyOrders /></> : <SignupForm />}</div>
         </div>
       </Header>
       <Content

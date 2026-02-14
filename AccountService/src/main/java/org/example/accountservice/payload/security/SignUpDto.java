@@ -14,7 +14,7 @@ public class SignUpDto {
     private Set<String> roles = new HashSet<>();
     private String shippingAddress;
 
-    public SignUpDto(String username, String account, String email, String password, String shippingAddress) {
+    public SignUpDto(String username, String email, String password, String shippingAddress) {
         this.username = username;
         this.email = email;
         this.password = password;

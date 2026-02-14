@@ -25,6 +25,6 @@ public class CartController {
 
     @PostMapping("/checkout")
     public void checkout(@RequestParam String userId) {
-        cartService.clearCart(userId);
+        cartService.checkout(userId);
     }
 }

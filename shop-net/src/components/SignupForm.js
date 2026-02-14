@@ -1,6 +1,6 @@
-import { Button, Form, Input, message, Modal } from "antd";
+import { Button, Checkbox, Form, Input, message, Modal } from "antd";
 import React from "react";
-import { LockOutlined, UserOutlined } from "@ant-design/icons";
+import { LockOutlined, UserOutlined, HomeOutlined } from "@ant-design/icons";
 import { signup } from "../utils";
 
 class SignupForm extends React.Component {
@@ -71,6 +71,22 @@ class SignupForm extends React.Component {
               ]}
             >
               <Input prefix={<LockOutlined />} placeholder="Password" />
+            </Form.Item>
+
+            <Form.Item
+              name="role"
+              label="Role"
+            >
+              <Checkbox.Group>
+                <Checkbox value="ROLE_USER">User</Checkbox>
+                <Checkbox value="ROLE_ADMIN">Admin</Checkbox>
+              </Checkbox.Group>
+            </Form.Item>
+            <Form.Item
+              name="shippingAddress"
+              rules={[{ required: true, message: "Please input your shipping address!" }]}
+            >
+              <Input prefix={<HomeOutlined />} placeholder="Shipping Address" />
             </Form.Item>
 
             <Form.Item>
