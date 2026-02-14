@@ -8,11 +8,11 @@
         <version>3.5.4</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>org.example.microservices</groupId>
+    <groupId>org.example.acountservice</groupId>
     <artifactId>AccountService</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>UserService</name>
-    <description>UserService</description>
+    <name>AccountService</name>
+    <description>AccountService</description>
     <url/>
     <licenses>
         <license/>

@@ -15,6 +15,11 @@ public class ItemController {
 
     private final ItemService itemService;
 
+    @GetMapping
+    public ResponseEntity<java.util.List<Item>> getAllItems() {
+        return ResponseEntity.ok(itemService.getAllItems());
+    }
+
     @GetMapping("/{itemId}")
     public ResponseEntity<Item> getItem(@PathVariable String itemId) {
         return ResponseEntity.ok(itemService.getByItemId(itemId));

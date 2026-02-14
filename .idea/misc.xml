@@ -10,6 +10,7 @@
         <option value="$PROJECT_DIR$/APIGatewayService/pom.xml" />
         <option value="$PROJECT_DIR$/PaymentService/pom.xml" />
         <option value="$PROJECT_DIR$/OrderService/pom.xml" />
+        <option value="$PROJECT_DIR$/CartService/pom.xml" />
       </list>
     </option>
   </component>

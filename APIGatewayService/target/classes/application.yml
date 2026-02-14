@@ -14,11 +14,15 @@ spring:
         - id: item-service
           uri: lb://ItemService
           predicates:
-            - Path=/api/items/**
+            - Path=/api/items,/api/items/**
         - id: order-service
           uri: lb://OrderService
           predicates:
-            - Path=/api/orders/**
+            - Path=/api/orders,/api/orders/**
+        - id: cart-service
+          uri: lb://CartService
+          predicates:
+            - Path=/api/cart,/api/cart/**
         - id: payment-service
           uri: lb://PaymentService
           predicates:
@@ -41,6 +45,12 @@ spring:
           uri: lb://OrderService
           predicates:
             - Path=/order/v3/api-docs/**
+          filters:
+            - StripPrefix=1
+        - id: cart-service-api-docs
+          uri: lb://CartService
+          predicates:
+            - Path=/cart/v3/api-docs/**
           filters:
             - StripPrefix=1
         - id: payment-service-api-docs
@@ -67,5 +77,7 @@ springdoc:
         url: /item/v3/api-docs
       - name: Order Service
         url: /order/v3/api-docs
+      - name: Cart Service
+        url: /cart/v3/api-docs
       - name: Payment Service
         url: /payment/v3/api-docs
