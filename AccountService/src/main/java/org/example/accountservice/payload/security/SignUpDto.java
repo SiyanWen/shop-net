@@ -12,13 +12,13 @@ public class SignUpDto {
     private String email;
     private String password;
     private Set<String> roles = new HashSet<>();
-    private String address;
+    private String shippingAddress;
 
-    public SignUpDto(String username, String account, String email, String password, String address) {
+    public SignUpDto(String username, String account, String email, String password, String shippingAddress) {
         this.username = username;
         this.email = email;
         this.password = password;
-        this.address = address;
+        this.shippingAddress = shippingAddress;
     }
 
     public String getUsername() {
@@ -49,6 +49,6 @@ public class SignUpDto {
     public Set<String> getRole() {return roles; };
 
     public void setRole(Set<String> role) {this.roles = role;};
-    public String getAddress() { return address; }
-    public void setAddress(String address) { this.address = address; }
+    public String getShippingAddress() { return shippingAddress; }
+    public void setShippingAddress(String shippingAddress) { this.shippingAddress = shippingAddress; }
 }
