@@ -2,9 +2,13 @@ package org.example.cartservice.service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.example.cartservice.client.AccountServiceClient;
 import org.example.cartservice.client.ItemServiceClient;
+import org.example.cartservice.client.OrderServiceClient;
 import org.example.cartservice.dto.CartDto;
 import org.example.cartservice.dto.CartItemDto;
+import org.example.cartservice.dto.CreateOrderRequest;
+import org.example.cartservice.dto.OrderItemDto;
 import org.example.cartservice.entity.CartEntity;
 import org.example.cartservice.entity.OrderItemEntity;
 import org.example.cartservice.repository.CartRepository;
@@ -16,6 +20,7 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
@@ -25,6 +30,8 @@ public class CartService {
     private final CartRepository cartRepository;
     private final OrderItemRepository orderItemRepository;
     private final ItemServiceClient itemServiceClient;
+    private final OrderServiceClient orderServiceClient;
+    private final AccountServiceClient accountServiceClient;
 
     @Transactional
     public void addItemToCart(String userId, String itemId) {
@@ -60,11 +67,43 @@ public class CartService {
     }
 
     @Transactional
-    public void clearCart(String userId) {
+    public void checkout(String userId) {
         CartEntity cart = cartRepository.getByUserId(userId);
         if (cart == null) {
-            return;
+            throw new IllegalStateException("Cart not found for user: " + userId);
         }
+
+        List<OrderItemEntity> items = orderItemRepository.getAllByCartId(cart.getId());
+        if (items.isEmpty()) {
+            throw new IllegalStateException("Cart is empty");
+        }
+
+        // Build order items with names from ItemService
+        List<OrderItemDto> orderItems = new ArrayList<>();
+        for (OrderItemEntity item : items) {
+            String itemName = "";
+            try {
+                Map<String, Object> itemDetails = itemServiceClient.getItem(item.getItemId());
+                itemName = (String) itemDetails.get("name");
+            } catch (Exception e) {
+                log.warn("Failed to fetch item name for {}: {}", item.getItemId(), e.getMessage());
+            }
+            orderItems.add(new OrderItemDto(item.getItemId(), itemName, item.getQuantity(), item.getPrice()));
+        }
+
+        // Look up user UUID from AccountService
+        Map<String, Object> userInfo = accountServiceClient.getUserByUsername(userId);
+        UUID userUuid = UUID.fromString(userInfo.get("id").toString());
+
+        CreateOrderRequest request = new CreateOrderRequest();
+        request.setUserId(userUuid);
+        request.setItems(orderItems);
+        request.setCurrency("USD");
+
+        orderServiceClient.createOrder(request);
+        log.info("Order created for user {}", userId);
+
+        // Clear the cart after successful order creation
         orderItemRepository.deleteByCartId(cart.getId());
         cartRepository.updateTotalPrice(cart.getId(), BigDecimal.ZERO);
     }

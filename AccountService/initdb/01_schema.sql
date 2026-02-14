@@ -70,3 +70,35 @@ INSERT INTO user_roles (user_id, role_id)
 SELECT u.id, r.id FROM users u, roles r
 WHERE u.email = 'bob.wilson@example.com' AND r.name = 'ROLE_USER'
 ON CONFLICT DO NOTHING;
+
+-- ======== Payment tables ========
+CREATE TABLE IF NOT EXISTS payments (
+    payment_id       UUID PRIMARY KEY,
+    order_id         UUID NOT NULL,
+    amount           NUMERIC(12,2) NOT NULL,
+    currency         VARCHAR(3) DEFAULT 'USD',
+    status           VARCHAR(20) NOT NULL DEFAULT 'PENDING',
+    payment_method   VARCHAR(30),
+    idempotency_key  VARCHAR(64) UNIQUE NOT NULL,
+    created_at       TIMESTAMP DEFAULT NOW(),
+    updated_at       TIMESTAMP DEFAULT NOW()
+);
+
+CREATE INDEX IF NOT EXISTS idx_payments_order_id ON payments(order_id);
+CREATE INDEX IF NOT EXISTS idx_payments_idempotency_key ON payments(idempotency_key);
+
+-- ======== Cart tables ========
+CREATE TABLE IF NOT EXISTS carts (
+    id BIGSERIAL PRIMARY KEY,
+    user_id VARCHAR(255) NOT NULL UNIQUE,
+    total_price DECIMAL(10, 2) NOT NULL DEFAULT 0.00
+);
+
+CREATE TABLE IF NOT EXISTS order_items (
+    id BIGSERIAL PRIMARY KEY,
+    item_id VARCHAR(255) NOT NULL,
+    cart_id BIGINT NOT NULL,
+    price DECIMAL(10, 2) NOT NULL,
+    quantity INT NOT NULL DEFAULT 1,
+    FOREIGN KEY (cart_id) REFERENCES carts(id)
+);

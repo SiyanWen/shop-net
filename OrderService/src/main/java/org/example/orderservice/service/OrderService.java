@@ -166,10 +166,27 @@ public class OrderService {
         return order;
     }
 
-    public void markOrderPaid(UUID orderId, String paymentRef) {
+    public void markOrderPending(UUID orderId, String paymentRef) {
         OrderById order = getOrder(orderId);
 
         if (!"CREATED".equals(order.getStatus())) {
+            log.warn("Cannot mark order {} as PENDING — current status: {}", orderId, order.getStatus());
+            return;
+        }
+
+        order.setStatus("PENDING");
+        order.setPaymentRef(paymentRef);
+        order = orderByIdRepository.save(order);
+
+        updateOrderByUserStatus(order);
+        publishEvent(order);
+        log.info("Order marked as PENDING: {}", orderId);
+    }
+
+    public void markOrderPaid(UUID orderId, String paymentRef) {
+        OrderById order = getOrder(orderId);
+
+        if (!"CREATED".equals(order.getStatus()) && !"PENDING".equals(order.getStatus())) {
             log.warn("Cannot mark order {} as PAID — current status: {}", orderId, order.getStatus());
             return;
         }

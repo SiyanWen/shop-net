@@ -32,6 +32,8 @@ export const signup = (data) => {
       username: data.username,
       email: data.email,
       password: data.password,
+      role: data.role || [],
+      shippingAddress: data.shippingAddress,
     }),
   }).then((response) => {
     if (response.status < 200 || response.status >= 300) {
@@ -77,6 +79,54 @@ export const checkout = () => {
     if (response.status < 200 || response.status >= 300) {
       throw Error("Fail to checkout");
     }
+  });
+};
+
+export const getUserInfo = () => {
+  return fetch(`/api/v1/auth/jwt/user?username=${getUserId()}`, {
+    headers: {
+      Authorization: `Bearer ${getToken()}`,
+    },
+  }).then((response) => {
+    if (response.status < 200 || response.status >= 300) {
+      throw Error("Fail to get user info");
+    }
+    return response.json();
+  });
+};
+
+export const getOrders = (userUuid) => {
+  return fetch(`/api/orders?userId=${userUuid}`, {
+    headers: {
+      Authorization: `Bearer ${getToken()}`,
+    },
+  }).then((response) => {
+    if (response.status < 200 || response.status >= 300) {
+      throw Error("Fail to get orders");
+    }
+    return response.json();
+  });
+};
+
+export const payOrder = (orderId, amount) => {
+  const idempotencyKey = `pay-${orderId}-${Date.now()}`;
+  return fetch("/api/payments", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${getToken()}`,
+      "Idempotency-Key": idempotencyKey,
+    },
+    body: JSON.stringify({
+      orderId,
+      amount,
+      currency: "USD",
+    }),
+  }).then((response) => {
+    if (response.status < 200 || response.status >= 300) {
+      throw Error("Fail to submit payment");
+    }
+    return response.json();
   });
 };
 
