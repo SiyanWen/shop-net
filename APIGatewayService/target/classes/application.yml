@@ -50,6 +50,9 @@ spring:
           filters:
             - StripPrefix=1
 
+app:
+  jwt-secret: JWTSecretKey12345678901234567890123456789012
+
 eureka:
   client:
     service-url:
