@@ -14,6 +14,10 @@ public class ItemService {
 
     private final ItemRepository itemRepository;
 
+    public java.util.List<Item> getAllItems() {
+        return itemRepository.findAll();
+    }
+
     public Item getByItemId(String itemId) {
         return itemRepository.findByItemId(itemId)
                 .orElseThrow(() -> new ItemNotFoundException(itemId));

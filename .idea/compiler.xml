@@ -9,6 +9,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="EurekaServer" />
         <module name="ItemService" />
+        <module name="CartService" />
         <module name="OrderService" />
         <module name="APIGatewayService" />
         <module name="AccountService" />
@@ -20,6 +21,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="APIGatewayService" options="-parameters" />
       <module name="AccountService" options="-parameters" />
+      <module name="CartService" options="-parameters" />
       <module name="EurekaServer" options="-parameters" />
       <module name="ItemService" options="-parameters" />
       <module name="OrderService" options="-parameters" />

@@ -4,22 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="82cbe5b4-0e37-430d-b50e-b208b5fee086" name="Changes" comment="lock inventory function">
-      <change beforePath="$PROJECT_DIR$/.claude/settings.local.json" beforeDir="false" afterPath="$PROJECT_DIR$/.claude/settings.local.json" afterDir="false" />
+    <list default="true" id="82cbe5b4-0e37-430d-b50e-b208b5fee086" name="Changes" comment="Authorization">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/APIGatewayService/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/APIGatewayService/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/APIGatewayService/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/APIGatewayService/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/APIGatewayService/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/APIGatewayService/target/classes/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AccountService/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/AccountService/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccountService/src/main/java/org/example/accountservice/config/security/SecurityDBJWTConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/AccountService/src/main/java/org/example/accountservice/config/security/SecurityDBJWTConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccountService/src/main/java/org/example/accountservice/controller/AuthJWTController.java" beforeDir="false" afterPath="$PROJECT_DIR$/AccountService/src/main/java/org/example/accountservice/controller/AuthJWTController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccountService/src/main/java/org/example/accountservice/entity/security/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/AccountService/src/main/java/org/example/accountservice/entity/security/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccountService/src/main/java/org/example/accountservice/payload/security/SignUpDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/AccountService/src/main/java/org/example/accountservice/payload/security/SignUpDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AccountService/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/AccountService/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ItemService/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ItemService/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ItemService/initdb/01_items.js" beforeDir="false" afterPath="$PROJECT_DIR$/ItemService/initdb/01_items.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ItemService/src/main/java/org/example/itemservice/controller/ItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ItemService/src/main/java/org/example/itemservice/controller/ItemController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ItemService/src/main/java/org/example/itemservice/service/ItemService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ItemService/src/main/java/org/example/itemservice/service/ItemService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ItemService/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/ItemService/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrderService/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/OrderService/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/OrderService/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/OrderService/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PaymentService/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/PaymentService/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PaymentService/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/PaymentService/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -70,6 +68,14 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;Maven.APIGatewayService [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.APIGatewayService [compile].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.AccountService [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.AccountService [compile].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.EurekaServer [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.EurekaServer [compile].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.ItemService [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.ItemService [compile].executor&quot;: &quot;Run&quot;,
     &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
     &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
     &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
@@ -80,6 +86,7 @@
     &quot;Spring Boot.APIGatewayApplication.executor&quot;: &quot;Run&quot;,
     &quot;Spring Boot.AccountServiceApplication (1).executor&quot;: &quot;Run&quot;,
     &quot;Spring Boot.AccountServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.CartServiceApplication.executor&quot;: &quot;Run&quot;,
     &quot;Spring Boot.EurekaServerApplication (1).executor&quot;: &quot;Run&quot;,
     &quot;Spring Boot.EurekaServerApplication.executor&quot;: &quot;Run&quot;,
     &quot;Spring Boot.ItemServiceApplication.executor&quot;: &quot;Run&quot;,
@@ -87,10 +94,10 @@
     &quot;Spring Boot.OrderServiceApplication.executor&quot;: &quot;Run&quot;,
     &quot;Spring Boot.PaymentServiceApplication.executor&quot;: &quot;Run&quot;,
     &quot;Spring Boot.UserServiceApplication.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;develop/feature/orderservice&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;develop/feature/security__monitor&quot;,
     &quot;jdk.selected.JAVA_MODULE&quot;: &quot;temurin-17&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/A_Chuwa/final_chuwa&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/A_Chuwa/final_chuwa/OrderService/src/main/java/org/example/orderservice/repository&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -100,6 +107,7 @@
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
     &quot;run.configurations.included.in.services&quot;: &quot;true&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\IntelliJ IDEA 2024.2.3\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -114,8 +122,16 @@
     <option name="notificationShown" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\A_Chuwa\final_chuwa\OrderService\src\main\java\org\example\orderservice\repository" />
+      <recent name="D:\A_Chuwa\final_chuwa\OrderService\src\main\java\org\example\orderservice\service" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="org.example.itemservice" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="org.example.orderservice.service" />
+      <recent name="org.example.orderservice.controller" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -139,6 +155,13 @@
     <configuration name="AccountServiceApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="AccountService" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="org.example.accountservice.AccountServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CartServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="CartService" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="org.example.cartservice.CartServiceApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -197,6 +220,9 @@
       <workItem from="1771020569926" duration="3130000" />
       <workItem from="1771023858513" duration="224000" />
       <workItem from="1771024214293" duration="5258000" />
+      <workItem from="1771043966880" duration="6677000" />
+      <workItem from="1771080940925" duration="980000" />
+      <workItem from="1771082065007" duration="992000" />
     </task>
     <task id="LOCAL-00001" summary="account service (signin, signup), itemservice started">
       <option name="closed" value="true" />

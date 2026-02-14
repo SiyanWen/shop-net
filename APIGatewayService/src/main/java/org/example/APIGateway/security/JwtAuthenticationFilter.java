@@ -1,5 +1,7 @@
 package org.example.APIGateway.security;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.cloud.gateway.filter.GlobalFilter;
 import org.springframework.core.Ordered;
@@ -17,6 +19,8 @@ import java.util.List;
 
 @Component
 public class JwtAuthenticationFilter implements GlobalFilter, Ordered {
+
+    private static final Logger logger = LoggerFactory.getLogger(JwtAuthenticationFilter.class);
 
     private final JwtUtil jwtUtil;
     private final AntPathMatcher pathMatcher = new AntPathMatcher();
@@ -37,16 +41,25 @@ public class JwtAuthenticationFilter implements GlobalFilter, Ordered {
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
         ServerHttpRequest request = exchange.getRequest();
-        String path = request.getURI().getPath();
+        String path = request.getPath().pathWithinApplication().value();
+
+        logger.info("Incoming request: {} {}", request.getMethod(), path);
+
+        // Allow CORS preflight requests
+        if (HttpMethod.OPTIONS.equals(request.getMethod())) {
+            return chain.filter(exchange);
+        }
 
         // Skip authentication for public paths
         if (isPublicPath(path)) {
+            logger.info("Public path, skipping auth: {}", path);
             return chain.filter(exchange);
         }
 
         // Extract Authorization header
         String authHeader = request.getHeaders().getFirst(HttpHeaders.AUTHORIZATION);
         if (authHeader == null || !authHeader.startsWith("Bearer ")) {
+            logger.warn("Missing or invalid Authorization header for path: {}", path);
             return onError(exchange, HttpStatus.UNAUTHORIZED);
         }
 
@@ -54,17 +67,20 @@ public class JwtAuthenticationFilter implements GlobalFilter, Ordered {
 
         // Validate token
         if (!jwtUtil.validateToken(token)) {
+            logger.warn("Invalid JWT token for path: {}", path);
             return onError(exchange, HttpStatus.UNAUTHORIZED);
         }
 
         // Extract user info
         String username = jwtUtil.getUsernameFromJWT(token);
         List<String> roles = jwtUtil.getRolesFromJWT(token);
+        logger.info("Authenticated user: {}, roles: {}, path: {}", username, roles, path);
 
         // Authorization check: PATCH /api/items/*/inventory requires ROLE_ADMIN
         if (HttpMethod.PATCH.equals(request.getMethod())
                 && pathMatcher.match("/api/items/*/inventory", path)) {
             if (!roles.contains("ROLE_ADMIN")) {
+                logger.warn("User {} denied access to inventory update (requires ROLE_ADMIN)", username);
                 return onError(exchange, HttpStatus.FORBIDDEN);
             }
         }
