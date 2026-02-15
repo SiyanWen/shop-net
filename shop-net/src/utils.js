@@ -55,6 +55,19 @@ export const getMenus = () => {
   });
 };
 
+export const getMenusPaginated = (page, size) => {
+  return fetch(`/api/items/paginated?page=${page}&size=${size}`, {
+    headers: {
+      Authorization: `Bearer ${getToken()}`,
+    },
+  }).then((response) => {
+    if (response.status < 200 || response.status >= 300) {
+      throw Error("Fail to get items");
+    }
+    return response.json();
+  });
+};
+
 export const getCart = () => {
   return fetch(`/api/cart?userId=${getUserId()}`, {
     headers: {
