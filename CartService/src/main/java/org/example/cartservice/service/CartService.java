@@ -99,6 +99,7 @@ public class CartService {
         request.setUserId(userUuid);
         request.setItems(orderItems);
         request.setCurrency("USD");
+        request.setUsername(userId);
 
         orderServiceClient.createOrder(request);
         log.info("Order created for user {}", userId);

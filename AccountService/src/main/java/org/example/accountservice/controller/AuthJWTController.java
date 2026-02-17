@@ -7,7 +7,7 @@ import org.example.accountservice.entity.security.User;
 import org.example.accountservice.payload.security.JWTAuthResponse;
 import org.example.accountservice.payload.security.LoginDto;
 import org.example.accountservice.payload.security.SignUpDto;
-import org.example.accountservice.security.JwtTokenProvider;
+import org.example.commonsecurity.jwt.JwtTokenProvider;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -132,7 +132,9 @@ public class AuthJWTController {
                 .map(user -> ResponseEntity.ok(Map.of(
                         "id", user.getId(),
                         "username", user.getUserame(),
-                        "email", user.getEmail()
+                        "email", user.getEmail(),
+                        "roles", user.getRoles().stream().map(Role::getName).toList(),
+                        "shippingAddress", user.getShippingAddress() != null ? user.getShippingAddress() : ""
                 )))
                 .orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).build());
     }

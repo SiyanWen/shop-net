@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.Map;
 
-@FeignClient(name = "ItemService")
+@FeignClient(name = "ItemService", fallbackFactory = ItemServiceClientFallbackFactory.class)
 public interface ItemServiceClient {
 
     @PatchMapping("/api/items/{itemId}/inventory")

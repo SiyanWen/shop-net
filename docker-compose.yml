@@ -1,0 +1,128 @@
+version: "3.9"
+
+services:
+  user-postgres:
+    image: postgres:16
+    container_name: user-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: userdb
+      POSTGRES_USER: userapp
+      POSTGRES_PASSWORD: userpass
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./AccountService/initdb:/docker-entrypoint-initdb.d
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U userapp -d userdb"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - shop-net
+
+  item-mongo:
+    image: mongo:7
+    container_name: item-mongo
+    restart: unless-stopped
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: itemroot
+      MONGO_INITDB_ROOT_PASSWORD: itempass
+      MONGO_INITDB_DATABASE: itemdb
+    ports:
+      - "27017:27017"
+    volumes:
+      - item_mongo_data:/data/db
+      - ./ItemService/initdb:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD-SHELL", "mongosh --username itemroot --password itempass --authenticationDatabase admin --eval \"db.adminCommand('ping')\" >/dev/null 2>&1"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - shop-net
+
+  order-cassandra:
+    image: cassandra:4.1
+    container_name: order-cassandra
+    restart: unless-stopped
+    environment:
+      CASSANDRA_CLUSTER_NAME: "ShopCluster"
+      CASSANDRA_NUM_TOKENS: 16
+      CASSANDRA_DC: "dc1"
+      CASSANDRA_RACK: "rack1"
+      MAX_HEAP_SIZE: 1G
+      HEAP_NEWSIZE: 256M
+    ports:
+      - "9042:9042"
+    volumes:
+      - order_cass_data:/var/lib/cassandra
+    healthcheck:
+      test: ["CMD-SHELL", "cqlsh -e 'DESCRIBE CLUSTER' >/dev/null 2>&1"]
+      interval: 15s
+      timeout: 10s
+      retries: 10
+    networks:
+      - shop-net
+
+  order-cassandra-init:
+    image: cassandra:4.1
+    container_name: order-cassandra-init
+    depends_on:
+      order-cassandra:
+        condition: service_healthy
+    volumes:
+      - ./OrderService/initdb:/initdb:ro
+    entrypoint: ["/bin/bash", "-lc"]
+    command: >
+      "
+      for f in /initdb/*.cql; do
+        echo Running $f;
+        cqlsh order-cassandra -e \"SOURCE '$${f}';\";
+      done
+      "
+    networks:
+      - shop-net
+    restart: "no"
+
+  payment-kafka:
+    image: apache/kafka:3.7.0
+    container_name: payment-kafka
+    environment:
+      KAFKA_NODE_ID: 1
+      KAFKA_PROCESS_ROLES: broker,controller
+      KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9092,PLAINTEXT_HOST://0.0.0.0:29092,CONTROLLER://0.0.0.0:9093
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://payment-kafka:9092,PLAINTEXT_HOST://localhost:29092
+      KAFKA_CONTROLLER_LISTENER_NAMES: CONTROLLER
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: CONTROLLER:PLAINTEXT,PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
+      KAFKA_CONTROLLER_QUORUM_VOTERS: 1@payment-kafka:9093
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_LOG_DIRS: /tmp/kraft-combined-logs
+      CLUSTER_ID: "MkU3OEVBNTcwNTJENDM2Qk"
+    ports:
+      - "29092:29092"
+    networks:
+      - shop-net
+
+  kafka-ui:
+    image: provectuslabs/kafka-ui:latest
+    container_name: payment-kafka-ui
+    ports:
+      - "8080:8080"
+    environment:
+      KAFKA_CLUSTERS_0_NAME: payment-kafka
+      KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: payment-kafka:9092
+    depends_on:
+      - payment-kafka
+    networks:
+      - shop-net
+
+volumes:
+  item_mongo_data:
+  order_cass_data:
+
+networks:
+  shop-net:
+    name: shop-net
+    driver: bridge

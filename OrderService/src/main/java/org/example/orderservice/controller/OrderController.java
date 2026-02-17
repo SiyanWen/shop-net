@@ -9,6 +9,7 @@ import org.example.orderservice.entity.OrderByUser;
 import org.example.orderservice.service.OrderService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import lombok.extern.slf4j.Slf4j;
@@ -33,6 +34,7 @@ public class OrderController {
         return ResponseEntity.status(HttpStatus.CREATED).body(order);
     }
 
+    @PreAuthorize("hasAnyRole('ADMIN', 'SERVICE')")
     @GetMapping("/{orderId}")
     public ResponseEntity<OrderById> getOrder(@PathVariable UUID orderId) {
         return ResponseEntity.ok(orderService.getOrder(orderId));

@@ -14,7 +14,11 @@
       "Bash(git rm:*)",
       "Bash(ls:*)",
       "Bash(for service in AccountService ItemService OrderService PaymentService APIGatewayService EurekaServer)",
-      "Bash(do echo \"=== $service ===\" find /d/A_Chuwa/final_chuwa/$service/src/main/java -type f -name \"*.java\")"
+      "Bash(do echo \"=== $service ===\" find /d/A_Chuwa/final_chuwa/$service/src/main/java -type f -name \"*.java\")",
+      "Bash(test:*)",
+      "Bash(mvn clean install:*)",
+      "Bash(mvn install:*)",
+      "Bash(mvn clean compile:*)"
     ]
   }
 }

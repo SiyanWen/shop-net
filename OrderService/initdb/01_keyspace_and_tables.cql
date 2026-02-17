@@ -26,8 +26,7 @@ CREATE TABLE IF NOT EXISTS orders_by_id (
                                             total decimal,
                                             shipping_address text,
                                             billing_address text,
-                                            payment_ref text,
-                                            attributes map<text, text>
+                                            payment_ref text
 );
 
 CREATE TABLE IF NOT EXISTS orders_by_user (

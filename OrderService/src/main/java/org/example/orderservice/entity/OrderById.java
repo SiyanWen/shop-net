@@ -12,7 +12,6 @@ import org.springframework.data.cassandra.core.mapping.Table;
 import java.math.BigDecimal;
 import java.time.Instant;
 import java.util.List;
-import java.util.Map;
 import java.util.UUID;
 
 @Table("orders_by_id")
@@ -54,6 +53,4 @@ public class OrderById {
 
     @Column("payment_ref")
     private String paymentRef;
-
-    private Map<String, String> attributes;
 }
