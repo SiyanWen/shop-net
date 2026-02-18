@@ -1,6 +1,6 @@
 import { Button, Card, List, message, Tooltip } from "antd";
 import { useEffect, useState } from "react";
-import { addItemToCart, getMenus } from "../utils";
+import { addItemToCart, getMenusPaginated } from "../utils";
 import { PlusOutlined } from "@ant-design/icons";
 
 const AddToCartButton = ({ itemId }) => {
@@ -28,15 +28,20 @@ const AddToCartButton = ({ itemId }) => {
   );
 };
 
+const PAGE_SIZE = 8;
+
 const FoodList = () => {
   const [foodData, setFoodData] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [current, setCurrent] = useState(1);
+  const [total, setTotal] = useState(0);
 
-  useEffect(() => {
+  const loadPage = (page) => {
     setLoading(true);
-    getMenus()
+    getMenusPaginated(page - 1, PAGE_SIZE)
       .then((data) => {
-        setFoodData(data);
+        setFoodData(data.content);
+        setTotal(data.totalElements);
       })
       .catch((err) => {
         message.error(err.message);
@@ -44,7 +49,11 @@ const FoodList = () => {
       .finally(() => {
         setLoading(false);
       });
-  }, []);
+  };
+
+  useEffect(() => {
+    loadPage(current);
+  }, [current]);
 
   return (
     <List
@@ -56,10 +65,16 @@ const FoodList = () => {
         sm: 2,
         md: 4,
         lg: 4,
-        xl: 3,
-        xxl: 3,
+        xl: 4,
+        xxl: 4,
       }}
       dataSource={foodData}
+      pagination={{
+        current,
+        total,
+        pageSize: PAGE_SIZE,
+        onChange: (page) => setCurrent(page),
+      }}
       renderItem={(item) => (
         <List.Item>
           <Card

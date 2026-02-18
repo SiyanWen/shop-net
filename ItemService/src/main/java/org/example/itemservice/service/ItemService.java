@@ -4,6 +4,8 @@ import lombok.RequiredArgsConstructor;
 import org.example.itemservice.entity.Item;
 import org.example.itemservice.exception.ItemNotFoundException;
 import org.example.itemservice.repository.ItemRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.time.Instant;
@@ -16,6 +18,10 @@ public class ItemService {
 
     public java.util.List<Item> getAllItems() {
         return itemRepository.findAll();
+    }
+
+    public Page<Item> getItems(Pageable pageable) {
+        return itemRepository.findAll(pageable);
     }
 
     public Item getByItemId(String itemId) {

@@ -1,8 +1,9 @@
 package org.example.accountservice.config.security;
 
 import org.example.accountservice.security.CustomUserDetailsService;
-import org.example.accountservice.security.JwtAuthenticationEntryPoint;
-import org.example.accountservice.security.JwtAuthenticationFilter;
+import org.example.commonsecurity.config.JwtAuthenticationEntryPoint;
+import org.example.commonsecurity.jwt.JwtAuthenticationFilter;
+import org.example.commonsecurity.jwt.JwtTokenProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -19,11 +20,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-/**
- * @author b1go
- * @date 7/1/22 3:46 PM
- * Updated for Spring Security 6.x (Spring Boot 3.x)
- */
 @Configuration
 @EnableWebSecurity
 @EnableMethodSecurity
@@ -34,9 +30,12 @@ public class SecurityDBJWTConfig {
     @Autowired
     private JwtAuthenticationEntryPoint authenticationEntryPoint;
 
+    @Autowired
+    private JwtTokenProvider tokenProvider;
+
     @Bean
     public JwtAuthenticationFilter jwtAuthenticationFilter() {
-        return new JwtAuthenticationFilter();
+        return new JwtAuthenticationFilter(tokenProvider);
     }
 
     @Bean

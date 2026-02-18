@@ -1,5 +1,5 @@
 const getToken = () => localStorage.getItem("token");
-const getUserId = () => localStorage.getItem("userId");
+const getUsername = () => localStorage.getItem("username");
 
 export const login = (credentials) => {
   return fetch("/api/v1/auth/jwt/signin", {
@@ -18,7 +18,7 @@ export const login = (credentials) => {
     return response.json();
   }).then((data) => {
     localStorage.setItem("token", data.accessToken);
-    localStorage.setItem("userId", credentials.username);
+    localStorage.setItem("username", credentials.username);
   });
 };
 
@@ -37,7 +37,9 @@ export const signup = (data) => {
     }),
   }).then((response) => {
     if (response.status < 200 || response.status >= 300) {
-      throw Error("Fail to sign up");
+      return response.text().then((body) => {
+        throw Error(body || "Fail to sign up");
+      });
     }
   });
 };
@@ -55,8 +57,21 @@ export const getMenus = () => {
   });
 };
 
+export const getMenusPaginated = (page, size) => {
+  return fetch(`/api/items/paginated?page=${page}&size=${size}`, {
+    headers: {
+      Authorization: `Bearer ${getToken()}`,
+    },
+  }).then((response) => {
+    if (response.status < 200 || response.status >= 300) {
+      throw Error("Fail to get items");
+    }
+    return response.json();
+  });
+};
+
 export const getCart = () => {
-  return fetch(`/api/cart?userId=${getUserId()}`, {
+  return fetch(`/api/cart?username=${getUsername()}`, {
     headers: {
       Authorization: `Bearer ${getToken()}`,
     },
@@ -69,7 +84,7 @@ export const getCart = () => {
 };
 
 export const checkout = () => {
-  return fetch(`/api/cart/checkout?userId=${getUserId()}`, {
+  return fetch(`/api/cart/checkout?username=${getUsername()}`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -83,7 +98,7 @@ export const checkout = () => {
 };
 
 export const getUserInfo = () => {
-  return fetch(`/api/v1/auth/jwt/user?username=${getUserId()}`, {
+  return fetch(`/api/v1/auth/jwt/user?username=${getUsername()}`, {
     headers: {
       Authorization: `Bearer ${getToken()}`,
     },
@@ -92,6 +107,8 @@ export const getUserInfo = () => {
       throw Error("Fail to get user info");
     }
     return response.json();
+  }).then((data) => {
+    return data;
   });
 };
 
@@ -130,8 +147,63 @@ export const payOrder = (orderId, amount) => {
   });
 };
 
+export const getOrderById = (orderId) => {
+  return fetch(`/api/orders/${orderId}`, {
+    headers: {
+      Authorization: `Bearer ${getToken()}`,
+    },
+  }).then((response) => {
+    if (response.status < 200 || response.status >= 300) {
+      throw Error("Fail to get order");
+    }
+    return response.json();
+  });
+};
+
+export const updateOrder = (orderId, addresses) => {
+  return fetch(`/api/orders/${orderId}`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${getToken()}`,
+    },
+    body: JSON.stringify(addresses),
+  }).then((response) => {
+    if (response.status < 200 || response.status >= 300) {
+      throw Error("Fail to update order");
+    }
+  });
+};
+
+export const cancelOrder = (orderId) => {
+  return fetch(`/api/orders/${orderId}/cancel`, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${getToken()}`,
+    },
+  }).then((response) => {
+    if (response.status < 200 || response.status >= 300) {
+      throw Error("Fail to cancel order");
+    }
+  });
+};
+
+export const refundPayment = (paymentId) => {
+  return fetch(`/api/payments/${paymentId}/refund`, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${getToken()}`,
+    },
+  }).then((response) => {
+    if (response.status < 200 || response.status >= 300) {
+      throw Error("Fail to refund payment");
+    }
+    return response.json();
+  });
+};
+
 export const addItemToCart = (itemId) => {
-  return fetch(`/api/cart?userId=${getUserId()}`, {
+  return fetch(`/api/cart?username=${getUsername()}`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

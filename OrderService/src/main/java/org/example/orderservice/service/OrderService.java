@@ -3,6 +3,7 @@ package org.example.orderservice.service;
 import feign.FeignException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.example.orderservice.client.AccountServiceClient;
 import org.example.orderservice.client.ItemServiceClient;
 import org.example.orderservice.dto.CreateOrderRequest;
 import org.example.orderservice.dto.OrderEvent;
@@ -41,10 +42,20 @@ public class OrderService {
     private final OrderByUserRepository orderByUserRepository;
     private final KafkaTemplate<String, Object> kafkaTemplate;
     private final ItemServiceClient itemServiceClient;
+    private final AccountServiceClient accountServiceClient;
 
     public OrderById createOrder(CreateOrderRequest request) {
         UUID orderId = UUID.randomUUID();
         Instant now = Instant.now();
+
+        // Fetch shipping address from AccountService
+        String shippingAddress = "";
+        try {
+            Map<String, Object> userInfo = accountServiceClient.getUserByUsername(request.getUsername());
+            shippingAddress = userInfo.getOrDefault("shippingAddress", "").toString();
+        } catch (Exception e) {
+            log.warn("Failed to fetch shipping address for user {}: {}", request.getUsername(), e.getMessage());
+        }
 
         // Decrement inventory for each item via ItemService
         List<OrderItemDto> succeededItems = new ArrayList<>();
@@ -94,9 +105,8 @@ public class OrderService {
                 .tax(tax)
                 .shippingFee(SHIPPING_FEE)
                 .total(total)
-                .shippingAddress(request.getShippingAddress())
-                .billingAddress(request.getBillingAddress())
-                .attributes(request.getAttributes())
+                .shippingAddress(shippingAddress)
+                .billingAddress(shippingAddress)
                 .build();
 
         orderByIdRepository.save(order);
@@ -138,10 +148,6 @@ public class OrderService {
         if (request.getBillingAddress() != null) {
             order.setBillingAddress(request.getBillingAddress());
         }
-        if (request.getAttributes() != null) {
-            order.setAttributes(request.getAttributes());
-        }
-
         return orderByIdRepository.save(order);
     }
 
@@ -198,6 +204,23 @@ public class OrderService {
         updateOrderByUserStatus(order);
         publishEvent(order);
         log.info("Order marked as PAID: {}", orderId);
+    }
+
+    public void markOrderRefunded(UUID orderId, String paymentRef) {
+        OrderById order = getOrder(orderId);
+
+        if (!"PAID".equals(order.getStatus())) {
+            log.warn("Cannot mark order {} as REFUNDED — current status: {}", orderId, order.getStatus());
+            return;
+        }
+
+        order.setStatus("REFUNDED");
+        order.setPaymentRef(paymentRef);
+        order = orderByIdRepository.save(order);
+
+        updateOrderByUserStatus(order);
+        publishEvent(order);
+        log.info("Order marked as REFUNDED: {}", orderId);
     }
 
     private void updateOrderByUserStatus(OrderById order) {

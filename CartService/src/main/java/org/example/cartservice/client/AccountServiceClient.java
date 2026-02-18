@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Map;
 
-@FeignClient(name = "AccountService")
+@FeignClient(name = "AccountService", fallbackFactory = AccountServiceClientFallbackFactory.class)
 public interface AccountServiceClient {
 
     @GetMapping("/api/v1/auth/jwt/user")

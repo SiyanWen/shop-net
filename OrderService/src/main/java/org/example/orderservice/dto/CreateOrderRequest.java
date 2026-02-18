@@ -6,7 +6,6 @@ import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 import java.util.List;
-import java.util.Map;
 import java.util.UUID;
 
 @Data
@@ -21,9 +20,5 @@ public class CreateOrderRequest {
 
     private String currency = "USD";
 
-    private String shippingAddress;
-
-    private String billingAddress;
-
-    private Map<String, String> attributes;
+    private String username;
 }

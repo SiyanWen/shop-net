@@ -14,4 +14,5 @@ public class CreateOrderRequest {
     private UUID userId;
     private List<OrderItemDto> items;
     private String currency;
+    private String username;
 }

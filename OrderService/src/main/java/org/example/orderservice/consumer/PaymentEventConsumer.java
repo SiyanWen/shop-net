@@ -29,6 +29,11 @@ public class PaymentEventConsumer {
                     event.getOrderId(),
                     event.getPaymentId().toString()
             );
+        } else if ("REFUNDED".equals(event.getStatus())) {
+            orderService.markOrderRefunded(
+                    event.getOrderId(),
+                    event.getPaymentId().toString()
+            );
         }
     }
 }
