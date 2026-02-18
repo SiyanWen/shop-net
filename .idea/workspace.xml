@@ -4,23 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="82cbe5b4-0e37-430d-b50e-b208b5fee086" name="Changes" comment="added SERVICE token and administrator only function: Order lookup">
+    <list default="true" id="82cbe5b4-0e37-430d-b50e-b208b5fee086" name="Changes" comment="update order, cancel order, refund payment (admin only)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccountService/initdb/01_schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/AccountService/initdb/01_schema.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccountService/src/main/java/org/example/accountservice/controller/AuthJWTController.java" beforeDir="false" afterPath="$PROJECT_DIR$/AccountService/src/main/java/org/example/accountservice/controller/AuthJWTController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccountService/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/AccountService/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CartService/src/main/java/org/example/cartservice/config/OpenApiConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/CartService/src/main/java/org/example/cartservice/config/OpenApiConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ItemService/src/main/java/org/example/itemservice/config/ItemServiceSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/ItemService/src/main/java/org/example/itemservice/config/ItemServiceSecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ItemService/src/main/java/org/example/itemservice/config/OpenApiConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/ItemService/src/main/java/org/example/itemservice/config/OpenApiConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ItemService/src/main/java/org/example/itemservice/controller/ItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ItemService/src/main/java/org/example/itemservice/controller/ItemController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrderService/initdb/01_keyspace_and_tables.cql" beforeDir="false" afterPath="$PROJECT_DIR$/OrderService/initdb/01_keyspace_and_tables.cql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrderService/src/main/java/org/example/orderservice/config/OpenApiConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/OrderService/src/main/java/org/example/orderservice/config/OpenApiConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrderService/src/main/java/org/example/orderservice/consumer/PaymentEventConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/OrderService/src/main/java/org/example/orderservice/consumer/PaymentEventConsumer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrderService/src/main/java/org/example/orderservice/service/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/OrderService/src/main/java/org/example/orderservice/service/OrderService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PaymentService/src/main/java/org/example/paymentservice/config/OpenApiConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/PaymentService/src/main/java/org/example/paymentservice/config/OpenApiConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common-security/src/main/java/org/example/commonsecurity/jwt/JwtAuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/common-security/src/main/java/org/example/commonsecurity/jwt/JwtAuthenticationFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OrderService/src/main/java/org/example/orderservice/controller/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/OrderService/src/main/java/org/example/orderservice/controller/OrderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop-net/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/shop-net/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shop-net/src/components/MyOrders.js" beforeDir="false" afterPath="$PROJECT_DIR$/shop-net/src/components/MyOrders.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-net/src/components/OrderLookup.js" beforeDir="false" afterPath="$PROJECT_DIR$/shop-net/src/components/OrderLookup.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shop-net/src/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/shop-net/src/utils.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -39,7 +27,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="develop/feature/security_monitor" />
+        <entry key="$PROJECT_DIR$" value="develop/feature/frontend_cart" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -97,7 +85,7 @@
     &quot;Spring Boot.OrderServiceApplication.executor&quot;: &quot;Run&quot;,
     &quot;Spring Boot.PaymentServiceApplication.executor&quot;: &quot;Run&quot;,
     &quot;Spring Boot.UserServiceApplication.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;develop/feature/frontend__cart&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;test/unit__test&quot;,
     &quot;jdk.selected.JAVA_MODULE&quot;: &quot;temurin-17&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;D:/A_Chuwa/springboot-redbook&quot;,
@@ -234,7 +222,9 @@
       <workItem from="1771267040239" duration="123000" />
       <workItem from="1771267292730" duration="19802000" />
       <workItem from="1771291604154" duration="23189000" />
-      <workItem from="1771348110244" duration="23664000" />
+      <workItem from="1771348110244" duration="23894000" />
+      <workItem from="1771428373037" duration="8461000" />
+      <workItem from="1771452134775" duration="2849000" />
     </task>
     <task id="LOCAL-00001" summary="account service (signin, signup), itemservice started">
       <option name="closed" value="true" />
@@ -300,7 +290,15 @@
       <option name="project" value="LOCAL" />
       <updated>1771313159064</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="update order, cancel order, refund payment (admin only)">
+      <option name="closed" value="true" />
+      <created>1771399695999</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1771399695999</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -327,7 +325,8 @@
     <MESSAGE value="added Order button and Order side bar" />
     <MESSAGE value="FoodList pagination" />
     <MESSAGE value="added SERVICE token and administrator only function: Order lookup" />
-    <option name="LAST_COMMIT_MESSAGE" value="added SERVICE token and administrator only function: Order lookup" />
+    <MESSAGE value="update order, cancel order, refund payment (admin only)" />
+    <option name="LAST_COMMIT_MESSAGE" value="update order, cancel order, refund payment (admin only)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
