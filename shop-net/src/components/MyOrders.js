@@ -1,6 +1,6 @@
-import { Button, Drawer, Form, Input, List, message, Modal, Tag, Typography } from "antd";
+import { Button, Drawer, Form, Input, List, message, Modal, Select, Tag, Typography } from "antd";
 import { useEffect, useState } from "react";
-import { cancelOrder, getOrders, getUserInfo, payOrder, updateOrder } from "../utils";
+import { cancelOrder, getOrderById, getOrders, getUserInfo, payOrder, updateOrder, updatePayment } from "../utils";
 
 const { Text } = Typography;
 
@@ -19,7 +19,10 @@ const MyOrders = () => {
   const [payingId, setPayingId] = useState(null);
   const [cancellingId, setCancellingId] = useState(null);
   const [updatingOrder, setUpdatingOrder] = useState(null);
+  const [changingPaymentOrder, setChangingPaymentOrder] = useState(null);
+  const [changingPaymentId, setChangingPaymentId] = useState(null);
   const [form] = Form.useForm();
+  const [paymentForm] = Form.useForm();
 
   const refreshOrders = () => {
     return getUserInfo()
@@ -66,6 +69,30 @@ const MyOrders = () => {
     form.setFieldsValue({
       shippingAddress: order.shippingAddress || "",
       billingAddress: order.billingAddress || "",
+    });
+  };
+
+  const onChangePaymentMethod = (order) => {
+    const orderId = order.key?.orderId || order.orderId;
+    setChangingPaymentId(orderId);
+    getOrderById(orderId)
+      .then((fullOrder) => {
+        setChangingPaymentOrder({ ...order, paymentRef: fullOrder.paymentRef });
+        paymentForm.resetFields();
+      })
+      .catch((err) => message.error(err.message))
+      .finally(() => setChangingPaymentId(null));
+  };
+
+  const onChangePaymentSubmit = () => {
+    paymentForm.validateFields().then((values) => {
+      updatePayment(changingPaymentOrder.paymentRef, values.paymentMethod)
+        .then(() => {
+          message.success("Payment method updated");
+          setChangingPaymentOrder(null);
+          paymentForm.resetFields();
+        })
+        .catch((err) => message.error(err.message));
     });
   };
 
@@ -134,6 +161,16 @@ const MyOrders = () => {
                           Cancel
                         </Button>,
                       ]
+                    : order.status === "PENDING"
+                    ? [
+                        <Button
+                          size="small"
+                          loading={changingPaymentId === orderId}
+                          onClick={() => onChangePaymentMethod(order)}
+                        >
+                          Change Payment Method
+                        </Button>,
+                      ]
                     : []
                 }
               >
@@ -180,6 +217,31 @@ const MyOrders = () => {
           </Form.Item>
           <Form.Item label="Billing Address" name="billingAddress">
             <Input />
+          </Form.Item>
+        </Form>
+      </Modal>
+      <Modal
+        title="Change Payment Method"
+        open={!!changingPaymentOrder}
+        onOk={onChangePaymentSubmit}
+        onCancel={() => {
+          setChangingPaymentOrder(null);
+          paymentForm.resetFields();
+        }}
+        okText="Update"
+      >
+        <Form form={paymentForm} layout="vertical">
+          <Form.Item
+            label="Payment Method"
+            name="paymentMethod"
+            rules={[{ required: true, message: "Please select a payment method" }]}
+          >
+            <Select placeholder="Select a payment method">
+              <Select.Option value="CREDIT_CARD">Credit Card</Select.Option>
+              <Select.Option value="DEBIT_CARD">Debit Card</Select.Option>
+              <Select.Option value="PAYPAL">PayPal</Select.Option>
+              <Select.Option value="BANK_TRANSFER">Bank Transfer</Select.Option>
+            </Select>
           </Form.Item>
         </Form>
       </Modal>

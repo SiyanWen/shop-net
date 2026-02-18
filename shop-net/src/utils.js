@@ -188,6 +188,22 @@ export const cancelOrder = (orderId) => {
   });
 };
 
+export const updatePayment = (paymentId, paymentMethod) => {
+  return fetch(`/api/payments/${paymentId}`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${getToken()}`,
+    },
+    body: JSON.stringify({ paymentMethod }),
+  }).then((response) => {
+    if (response.status < 200 || response.status >= 300) {
+      throw Error("Fail to update payment method");
+    }
+    return response.json();
+  });
+};
+
 export const refundPayment = (paymentId) => {
   return fetch(`/api/payments/${paymentId}/refund`, {
     method: "POST",

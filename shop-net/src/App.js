@@ -16,14 +16,12 @@ function App() {
   const [isAdmin, setIsAdmin] = useState(false);
 
   useEffect(() => {
-      console.log("isAdmin:", isAdmin);
     if (!authed) {
       setIsAdmin(false);
       return;
     }
     getUserInfo()
       .then((user) => {
-          console.log("roles:",user.roles);
         if (user.roles?.includes("ROLE_ADMIN")) {
           setIsAdmin(true);
         }

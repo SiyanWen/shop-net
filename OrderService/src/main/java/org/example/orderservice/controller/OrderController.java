@@ -34,7 +34,7 @@ public class OrderController {
         return ResponseEntity.status(HttpStatus.CREATED).body(order);
     }
 
-    @PreAuthorize("hasAnyRole('ADMIN', 'SERVICE')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'SERVICE', 'USER')")
     @GetMapping("/{orderId}")
     public ResponseEntity<OrderById> getOrder(@PathVariable UUID orderId) {
         return ResponseEntity.ok(orderService.getOrder(orderId));
