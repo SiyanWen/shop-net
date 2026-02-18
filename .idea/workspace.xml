@@ -4,52 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="82cbe5b4-0e37-430d-b50e-b208b5fee086" name="Changes" comment="FoodList pagination">
-      <change beforePath="$PROJECT_DIR$/.claude/settings.local.json" beforeDir="false" afterPath="$PROJECT_DIR$/.claude/settings.local.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="82cbe5b4-0e37-430d-b50e-b208b5fee086" name="Changes" comment="added SERVICE token and administrator only function: Order lookup">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/APIGatewayService/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/APIGatewayService/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/APIGatewayService/src/main/java/org/example/APIGateway/security/JwtAuthenticationFilter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/APIGatewayService/src/main/java/org/example/APIGateway/security/JwtUtil.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/APIGatewayService/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/APIGatewayService/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/APIGatewayService/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/APIGatewayService/target/classes/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/APIGatewayService/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/APIGatewayService/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/APIGatewayService/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/APIGatewayService/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccountService/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/AccountService/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccountService/src/main/java/org/example/accountservice/AccountServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/AccountService/src/main/java/org/example/accountservice/AccountServiceApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccountService/src/main/java/org/example/accountservice/config/security/SecurityDBJWTConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/AccountService/src/main/java/org/example/accountservice/config/security/SecurityDBJWTConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AccountService/initdb/01_schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/AccountService/initdb/01_schema.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AccountService/src/main/java/org/example/accountservice/controller/AuthJWTController.java" beforeDir="false" afterPath="$PROJECT_DIR$/AccountService/src/main/java/org/example/accountservice/controller/AuthJWTController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccountService/src/main/java/org/example/accountservice/security/JwtAuthenticationEntryPoint.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccountService/src/main/java/org/example/accountservice/security/JwtAuthenticationFilter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccountService/src/main/java/org/example/accountservice/security/JwtTokenProvider.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CartService/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/CartService/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CartService/src/main/java/org/example/cartservice/CartServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/CartService/src/main/java/org/example/cartservice/CartServiceApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CartService/src/main/java/org/example/cartservice/client/AccountServiceClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/CartService/src/main/java/org/example/cartservice/client/AccountServiceClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CartService/src/main/java/org/example/cartservice/client/ItemServiceClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/CartService/src/main/java/org/example/cartservice/client/ItemServiceClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CartService/src/main/java/org/example/cartservice/client/OrderServiceClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/CartService/src/main/java/org/example/cartservice/client/OrderServiceClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CartService/src/main/java/org/example/cartservice/controller/CartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/CartService/src/main/java/org/example/cartservice/controller/CartController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CartService/src/main/java/org/example/cartservice/dto/CreateOrderRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/CartService/src/main/java/org/example/cartservice/dto/CreateOrderRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CartService/src/main/java/org/example/cartservice/service/CartService.java" beforeDir="false" afterPath="$PROJECT_DIR$/CartService/src/main/java/org/example/cartservice/service/CartService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CartService/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/CartService/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ItemService/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ItemService/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ItemService/src/main/java/org/example/itemservice/ItemServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/ItemService/src/main/java/org/example/itemservice/ItemServiceApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ItemService/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/ItemService/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AccountService/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/AccountService/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CartService/src/main/java/org/example/cartservice/config/OpenApiConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/CartService/src/main/java/org/example/cartservice/config/OpenApiConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ItemService/src/main/java/org/example/itemservice/config/ItemServiceSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/ItemService/src/main/java/org/example/itemservice/config/ItemServiceSecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ItemService/src/main/java/org/example/itemservice/config/OpenApiConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/ItemService/src/main/java/org/example/itemservice/config/OpenApiConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ItemService/src/main/java/org/example/itemservice/controller/ItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ItemService/src/main/java/org/example/itemservice/controller/ItemController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/OrderService/initdb/01_keyspace_and_tables.cql" beforeDir="false" afterPath="$PROJECT_DIR$/OrderService/initdb/01_keyspace_and_tables.cql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrderService/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/OrderService/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrderService/src/main/java/org/example/orderservice/OrderServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/OrderService/src/main/java/org/example/orderservice/OrderServiceApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrderService/src/main/java/org/example/orderservice/client/ItemServiceClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/OrderService/src/main/java/org/example/orderservice/client/ItemServiceClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrderService/src/main/java/org/example/orderservice/controller/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/OrderService/src/main/java/org/example/orderservice/controller/OrderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrderService/src/main/java/org/example/orderservice/dto/CreateOrderRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/OrderService/src/main/java/org/example/orderservice/dto/CreateOrderRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrderService/src/main/java/org/example/orderservice/dto/UpdateOrderRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/OrderService/src/main/java/org/example/orderservice/dto/UpdateOrderRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrderService/src/main/java/org/example/orderservice/entity/OrderById.java" beforeDir="false" afterPath="$PROJECT_DIR$/OrderService/src/main/java/org/example/orderservice/entity/OrderById.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OrderService/src/main/java/org/example/orderservice/config/OpenApiConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/OrderService/src/main/java/org/example/orderservice/config/OpenApiConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OrderService/src/main/java/org/example/orderservice/consumer/PaymentEventConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/OrderService/src/main/java/org/example/orderservice/consumer/PaymentEventConsumer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/OrderService/src/main/java/org/example/orderservice/service/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/OrderService/src/main/java/org/example/orderservice/service/OrderService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrderService/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/OrderService/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PaymentService/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/PaymentService/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PaymentService/src/main/java/org/example/paymentservice/PaymentServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/PaymentService/src/main/java/org/example/paymentservice/PaymentServiceApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PaymentService/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/PaymentService/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-net/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/shop-net/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PaymentService/src/main/java/org/example/paymentservice/config/OpenApiConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/PaymentService/src/main/java/org/example/paymentservice/config/OpenApiConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common-security/src/main/java/org/example/commonsecurity/jwt/JwtAuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/common-security/src/main/java/org/example/commonsecurity/jwt/JwtAuthenticationFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop-net/src/components/MyOrders.js" beforeDir="false" afterPath="$PROJECT_DIR$/shop-net/src/components/MyOrders.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop-net/src/components/OrderLookup.js" beforeDir="false" afterPath="$PROJECT_DIR$/shop-net/src/components/OrderLookup.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shop-net/src/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/shop-net/src/utils.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -262,7 +233,8 @@
       <workItem from="1771266784711" duration="238000" />
       <workItem from="1771267040239" duration="123000" />
       <workItem from="1771267292730" duration="19802000" />
-      <workItem from="1771291604154" duration="17213000" />
+      <workItem from="1771291604154" duration="23189000" />
+      <workItem from="1771348110244" duration="23664000" />
     </task>
     <task id="LOCAL-00001" summary="account service (signin, signup), itemservice started">
       <option name="closed" value="true" />
@@ -320,7 +292,15 @@
       <option name="project" value="LOCAL" />
       <updated>1771196657391</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="added SERVICE token and administrator only function: Order lookup">
+      <option name="closed" value="true" />
+      <created>1771313159064</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1771313159064</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -346,7 +326,8 @@
     <MESSAGE value="added front end and cart" />
     <MESSAGE value="added Order button and Order side bar" />
     <MESSAGE value="FoodList pagination" />
-    <option name="LAST_COMMIT_MESSAGE" value="FoodList pagination" />
+    <MESSAGE value="added SERVICE token and administrator only function: Order lookup" />
+    <option name="LAST_COMMIT_MESSAGE" value="added SERVICE token and administrator only function: Order lookup" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -1,6 +1,6 @@
 import { Button, Drawer, Input, List, message, Tag, Typography } from "antd";
 import { useState } from "react";
-import { getOrderById } from "../utils";
+import { getOrderById, refundPayment } from "../utils";
 
 const { Text } = Typography;
 const { Search } = Input;
@@ -10,12 +10,29 @@ const statusColor = {
   PENDING: "orange",
   PAID: "green",
   CANCELLED: "red",
+  REFUNDED: "purple",
 };
 
 const OrderLookup = () => {
   const [visible, setVisible] = useState(false);
   const [order, setOrder] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [refunding, setRefunding] = useState(false);
+
+  const onRefund = () => {
+    if (!order?.paymentRef) {
+      message.error("No payment reference found for this order");
+      return;
+    }
+    setRefunding(true);
+    refundPayment(order.paymentRef)
+      .then(() => {
+        message.success("Refund submitted successfully");
+        return getOrderById(order.orderId).then((data) => setOrder(data));
+      })
+      .catch((err) => message.error(err.message))
+      .finally(() => setRefunding(false));
+  };
 
   const onSearch = (orderId) => {
     if (!orderId?.trim()) {
@@ -59,7 +76,22 @@ const OrderLookup = () => {
         />
         {order && (
           <List itemLayout="horizontal">
-            <List.Item>
+            <List.Item
+              actions={
+                order.status === "PAID"
+                  ? [
+                      <Button
+                        danger
+                        size="small"
+                        loading={refunding}
+                        onClick={onRefund}
+                      >
+                        Refund
+                      </Button>,
+                    ]
+                  : []
+              }
+            >
               <List.Item.Meta
                 title={
                   <span>

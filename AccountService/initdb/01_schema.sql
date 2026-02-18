@@ -33,43 +33,23 @@ CREATE TABLE IF NOT EXISTS user_roles (
 
 -- Insert users with role references
 INSERT INTO users (email, username, password, enabled, shipping_address, billing_address, payment_method) VALUES
-    ('abc@gmail.com', 'foo', '$2a$10$cx4z7wDEH3OeEpvNULIR2.4fqmzcVEj4fu.xmmx1oLyuq1.v2S3uy', true, '111 S Main St. LA CA 90000', '123 Fifth St. LA CA 90000', 'card'),
-    ('789@admin.com', 'admin_a', '$2a$10$cx4z7wDEH3OeEpvNULIR2.4fqmzcVEj4fu.xmmx1oLyuq1.v2S3uy', true, '111 S Main St. LA CA 90000', '123 Fifth St. LA CA 90000', 'paypal'),
-    ('john.doe@example.com', 'john_doe', '$2a$10$cx4z7wDEH3OeEpvNULIR2.4fqmzcVEj4fu.xmmx1oLyuq1.v2S3uy', true, '456 Oak Ave. NYC NY 10001', '456 Oak Ave. NYC NY 10001', 'card'),
-    ('jane.smith@example.com', 'jane_smith', '$2a$10$cx4z7wDEH3OeEpvNULIR2.4fqmzcVEj4fu.xmmx1oLyuq1.v2S3uy', true, '789 Pine Rd. Chicago IL 60601', '789 Pine Rd. Chicago IL 60601', 'paypal'),
-    ('bob.wilson@example.com', 'bob_wilson', '$2a$10$cx4z7wDEH3OeEpvNULIR2.4fqmzcVEj4fu.xmmx1oLyuq1.v2S3uy', true, '321 Elm Blvd. Houston TX 77001', '321 Elm Blvd. Houston TX 77001', 'card')
+    ('user@gmail.com', 'user', '$2a$10$cx4z7wDEH3OeEpvNULIR2.4fqmzcVEj4fu.xmmx1oLyuq1.v2S3uy', true, '111 S Main St. LA CA 90000', '123 Fifth St. LA CA 90000', 'card'),
+    ('789@admin.com', 'admin', '$2a$10$cx4z7wDEH3OeEpvNULIR2.4fqmzcVEj4fu.xmmx1oLyuq1.v2S3uy', true, '111 S Main St. LA CA 90000', '123 Fifth St. LA CA 90000', 'paypal')
 ON CONFLICT (email) DO NOTHING;
 
 -- Associate users with roles
 -- User 'foo' gets ROLE_USER
 INSERT INTO user_roles (user_id, role_id)
 SELECT u.id, r.id FROM users u, roles r
-WHERE u.email = 'abc@gmail.com' AND r.name = 'ROLE_USER'
+WHERE u.email = 'user@gmail.com' AND r.name = 'ROLE_USER'
 ON CONFLICT DO NOTHING;
 
--- User 'admin_a' gets ROLE_ADMIN
+-- User 'admin' gets ROLE_ADMIN
 INSERT INTO user_roles (user_id, role_id)
 SELECT u.id, r.id FROM users u, roles r
 WHERE u.email = '789@admin.com' AND r.name = 'ROLE_ADMIN'
 ON CONFLICT DO NOTHING;
 
--- User 'john_doe' gets ROLE_USER
-INSERT INTO user_roles (user_id, role_id)
-SELECT u.id, r.id FROM users u, roles r
-WHERE u.email = 'john.doe@example.com' AND r.name = 'ROLE_USER'
-ON CONFLICT DO NOTHING;
-
--- User 'jane_smith' gets ROLE_USER
-INSERT INTO user_roles (user_id, role_id)
-SELECT u.id, r.id FROM users u, roles r
-WHERE u.email = 'jane.smith@example.com' AND r.name = 'ROLE_USER'
-ON CONFLICT DO NOTHING;
-
--- User 'bob_wilson' gets ROLE_USER
-INSERT INTO user_roles (user_id, role_id)
-SELECT u.id, r.id FROM users u, roles r
-WHERE u.email = 'bob.wilson@example.com' AND r.name = 'ROLE_USER'
-ON CONFLICT DO NOTHING;
 
 -- ======== Payment tables ========
 CREATE TABLE IF NOT EXISTS payments (

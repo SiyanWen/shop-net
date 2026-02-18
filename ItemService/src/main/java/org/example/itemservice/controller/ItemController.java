@@ -17,6 +17,7 @@ public class ItemController {
 
     private final ItemService itemService;
 
+    @CrossOrigin(origins = "*")
     @GetMapping
     public ResponseEntity<java.util.List<Item>> getAllItems() {
         return ResponseEntity.ok(itemService.getAllItems());
@@ -28,7 +29,7 @@ public class ItemController {
             @RequestParam(defaultValue = "8") int size) {
         return ResponseEntity.ok(itemService.getItems(PageRequest.of(page, size)));
     }
-
+    @CrossOrigin(origins = "*")
     @GetMapping("/{itemId}")
     public ResponseEntity<Item> getItem(@PathVariable String itemId) {
         return ResponseEntity.ok(itemService.getByItemId(itemId));

@@ -125,7 +125,7 @@ public class AuthJWTController {
         logger.info("User registered successfully");
         return new ResponseEntity<>("User registered successfully", HttpStatus.CREATED);
     }
-
+    @CrossOrigin(origins = "*")
     @GetMapping("/user")
     public ResponseEntity<?> getUserByUsername(@RequestParam String username) {
         return userRepository.findByUsernameOrEmail(username, username)

@@ -108,7 +108,6 @@ export const getUserInfo = () => {
     }
     return response.json();
   }).then((data) => {
-    console.log("getUserInfo:", data);
     return data;
   });
 };
@@ -156,6 +155,48 @@ export const getOrderById = (orderId) => {
   }).then((response) => {
     if (response.status < 200 || response.status >= 300) {
       throw Error("Fail to get order");
+    }
+    return response.json();
+  });
+};
+
+export const updateOrder = (orderId, addresses) => {
+  return fetch(`/api/orders/${orderId}`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${getToken()}`,
+    },
+    body: JSON.stringify(addresses),
+  }).then((response) => {
+    if (response.status < 200 || response.status >= 300) {
+      throw Error("Fail to update order");
+    }
+  });
+};
+
+export const cancelOrder = (orderId) => {
+  return fetch(`/api/orders/${orderId}/cancel`, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${getToken()}`,
+    },
+  }).then((response) => {
+    if (response.status < 200 || response.status >= 300) {
+      throw Error("Fail to cancel order");
+    }
+  });
+};
+
+export const refundPayment = (paymentId) => {
+  return fetch(`/api/payments/${paymentId}/refund`, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${getToken()}`,
+    },
+  }).then((response) => {
+    if (response.status < 200 || response.status >= 300) {
+      throw Error("Fail to refund payment");
     }
     return response.json();
   });

@@ -206,6 +206,23 @@ public class OrderService {
         log.info("Order marked as PAID: {}", orderId);
     }
 
+    public void markOrderRefunded(UUID orderId, String paymentRef) {
+        OrderById order = getOrder(orderId);
+
+        if (!"PAID".equals(order.getStatus())) {
+            log.warn("Cannot mark order {} as REFUNDED — current status: {}", orderId, order.getStatus());
+            return;
+        }
+
+        order.setStatus("REFUNDED");
+        order.setPaymentRef(paymentRef);
+        order = orderByIdRepository.save(order);
+
+        updateOrderByUserStatus(order);
+        publishEvent(order);
+        log.info("Order marked as REFUNDED: {}", orderId);
+    }
+
     private void updateOrderByUserStatus(OrderById order) {
         List<OrderByUser> userOrders = orderByUserRepository.findByKeyUserId(order.getUserId());
         userOrders.stream()
