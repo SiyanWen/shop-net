@@ -60,6 +60,7 @@ public class CartServiceSecurityConfig {
                         .requestMatchers("/api/cart", "/api/cart/**").authenticated()
                         .requestMatchers("/actuator/**").permitAll()
                         .requestMatchers("/v3/api-docs/**", "/swagger-ui/**", "/swagger-ui.html").permitAll()
+                        .requestMatchers("/error").permitAll()
                         .anyRequest().authenticated()
                 );
 

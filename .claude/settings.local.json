@@ -18,7 +18,10 @@
       "Bash(test:*)",
       "Bash(mvn clean install:*)",
       "Bash(mvn install:*)",
-      "Bash(mvn clean compile:*)"
+      "Bash(mvn clean compile:*)",
+      "Bash(mvn test:*)",
+      "Bash(cmd /c:*)",
+      "Bash(mvn:*)"
     ]
   }
 }

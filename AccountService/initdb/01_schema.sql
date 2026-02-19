@@ -31,24 +31,7 @@ CREATE TABLE IF NOT EXISTS user_roles (
 );
 
 
--- Insert users with role references
-INSERT INTO users (email, username, password, enabled, shipping_address, billing_address, payment_method) VALUES
-    ('user@gmail.com', 'user', '$2a$10$cx4z7wDEH3OeEpvNULIR2.4fqmzcVEj4fu.xmmx1oLyuq1.v2S3uy', true, '111 S Main St. LA CA 90000', '123 Fifth St. LA CA 90000', 'card'),
-    ('789@admin.com', 'admin', '$2a$10$cx4z7wDEH3OeEpvNULIR2.4fqmzcVEj4fu.xmmx1oLyuq1.v2S3uy', true, '111 S Main St. LA CA 90000', '123 Fifth St. LA CA 90000', 'paypal')
-ON CONFLICT (email) DO NOTHING;
 
--- Associate users with roles
--- User 'foo' gets ROLE_USER
-INSERT INTO user_roles (user_id, role_id)
-SELECT u.id, r.id FROM users u, roles r
-WHERE u.email = 'user@gmail.com' AND r.name = 'ROLE_USER'
-ON CONFLICT DO NOTHING;
-
--- User 'admin' gets ROLE_ADMIN
-INSERT INTO user_roles (user_id, role_id)
-SELECT u.id, r.id FROM users u, roles r
-WHERE u.email = '789@admin.com' AND r.name = 'ROLE_ADMIN'
-ON CONFLICT DO NOTHING;
 
 
 -- ======== Payment tables ========
