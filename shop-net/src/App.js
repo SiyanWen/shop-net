@@ -40,7 +40,7 @@ function App() {
             level={2}
             style={{ color: "white", lineHeight: "inherit", marginBottom: 0 }}
           >
-            Online Order
+            Food delivery platform
           </Title>
           <div>{authed ? <><MyCart />{isAdmin && <OrderLookup />}<MyOrders /><Button shape="round" style={{ marginLeft: 8 }} onClick={() => { localStorage.removeItem("token"); localStorage.removeItem("username"); setAuthed(false); }}>Logout</Button></> : <SignupForm />}</div>
         </div>
