@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="82cbe5b4-0e37-430d-b50e-b208b5fee086" name="Changes" comment="Unit test for Item, Cart, Order, Payment Services, Added Jacoco and excluded Boilerplate Classes." />
+    <list default="true" id="82cbe5b4-0e37-430d-b50e-b208b5fee086" name="Changes" comment="Added payment_ref to cassandra orders_by_user table, eliminated user to call getOrder() by orderId.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -52,65 +54,65 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;JUnit.ItemServiceApplicationTests.executor&quot;: &quot;Coverage&quot;,
-    &quot;JUnit.ItemServiceTest.executor&quot;: &quot;Coverage&quot;,
-    &quot;Maven.APIGatewayService [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.APIGatewayService [compile].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.AccountService [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.AccountService [compile].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.AccountService [package].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.CartService [package].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.EurekaServer [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.EurekaServer [compile].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.ItemService [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.ItemService [compile].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.ItemService [package].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.OrderService [package].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.PaymentService [package].executor&quot;: &quot;Run&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Spring Boot.APIGatewayApplication (1).executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.APIGatewayApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.AccountServiceApplication (1).executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.AccountServiceApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.CartServiceApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.EurekaServerApplication (1).executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.EurekaServerApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.ItemServiceApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.OrderServiceApplication (1).executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.OrderServiceApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.PaymentServiceApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.UserServiceApplication.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;test/unit__test&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;temurin-17&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/A_Chuwa/springboot-redbook&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;run.configurations.included.in.services&quot;: &quot;true&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\IntelliJ IDEA 2024.2.3\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "JUnit.ItemServiceApplicationTests.executor": "Coverage",
+    "JUnit.ItemServiceTest.executor": "Coverage",
+    "Maven.APIGatewayService [clean].executor": "Run",
+    "Maven.APIGatewayService [compile].executor": "Run",
+    "Maven.AccountService [clean].executor": "Run",
+    "Maven.AccountService [compile].executor": "Run",
+    "Maven.AccountService [package].executor": "Run",
+    "Maven.CartService [package].executor": "Run",
+    "Maven.EurekaServer [clean].executor": "Run",
+    "Maven.EurekaServer [compile].executor": "Run",
+    "Maven.ItemService [clean].executor": "Run",
+    "Maven.ItemService [compile].executor": "Run",
+    "Maven.ItemService [package].executor": "Run",
+    "Maven.OrderService [package].executor": "Run",
+    "Maven.PaymentService [package].executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Spring Boot.APIGatewayApplication (1).executor": "Run",
+    "Spring Boot.APIGatewayApplication.executor": "Run",
+    "Spring Boot.AccountServiceApplication (1).executor": "Run",
+    "Spring Boot.AccountServiceApplication.executor": "Run",
+    "Spring Boot.CartServiceApplication.executor": "Run",
+    "Spring Boot.EurekaServerApplication (1).executor": "Run",
+    "Spring Boot.EurekaServerApplication.executor": "Run",
+    "Spring Boot.ItemServiceApplication.executor": "Run",
+    "Spring Boot.OrderServiceApplication (1).executor": "Run",
+    "Spring Boot.OrderServiceApplication.executor": "Run",
+    "Spring Boot.PaymentServiceApplication.executor": "Run",
+    "Spring Boot.UserServiceApplication.executor": "Run",
+    "git-widget-placeholder": "test/unit__test",
+    "jdk.selected.JAVA_MODULE": "temurin-17",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/A_Chuwa/kejian/Chuwa20250609",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "run.configurations.included.in.services": "true",
+    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\IntelliJ IDEA 2024.2.3\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mongo&quot;,
-      &quot;cassandra&quot;,
-      &quot;postgresql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mongo",
+      "cassandra",
+      "postgresql"
     ]
   }
-}</component>
+}]]></component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
@@ -264,6 +266,9 @@
       <workItem from="1771428373037" duration="8461000" />
       <workItem from="1771452134775" duration="24768000" />
       <workItem from="1771517948571" duration="11451000" />
+      <workItem from="1771540632785" duration="877000" />
+      <workItem from="1771818182234" duration="11579000" />
+      <workItem from="1771905440871" duration="337000" />
     </task>
     <task id="LOCAL-00001" summary="account service (signin, signup), itemservice started">
       <option name="closed" value="true" />
@@ -353,7 +358,23 @@
       <option name="project" value="LOCAL" />
       <updated>1771474799584</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Updated README.md">
+      <option name="closed" value="true" />
+      <created>1771535484711</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1771535484711</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Added payment_ref to cassandra orders_by_user table, eliminated user to call getOrder() by orderId.">
+      <option name="closed" value="true" />
+      <created>1771905750851</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1771905750851</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -383,7 +404,9 @@
     <MESSAGE value="update order, cancel order, refund payment (admin only)" />
     <MESSAGE value="Change payment method function of frontend" />
     <MESSAGE value="Unit test for Item, Cart, Order, Payment Services, Added Jacoco and excluded Boilerplate Classes." />
-    <option name="LAST_COMMIT_MESSAGE" value="Unit test for Item, Cart, Order, Payment Services, Added Jacoco and excluded Boilerplate Classes." />
+    <MESSAGE value="Updated README.md" />
+    <MESSAGE value="Added payment_ref to cassandra orders_by_user table, eliminated user to call getOrder() by orderId." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added payment_ref to cassandra orders_by_user table, eliminated user to call getOrder() by orderId." />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/final_chuwa$ItemServiceApplicationTests.ic" NAME="ItemServiceApplicationTests Coverage Results" MODIFIED="1771466650463" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">

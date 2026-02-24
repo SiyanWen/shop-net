@@ -36,6 +36,7 @@ CREATE TABLE IF NOT EXISTS orders_by_user (
                                               status text,
                                               total decimal,
                                               currency text,
+                                              payment_ref text,
                                               PRIMARY KEY ((user_id), created_at, order_id)
 ) WITH CLUSTERING ORDER BY (created_at DESC, order_id ASC);
 
