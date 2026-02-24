@@ -1,6 +1,6 @@
 import { Button, Drawer, Form, Input, List, message, Modal, Select, Tag, Typography } from "antd";
 import { useEffect, useState } from "react";
-import { cancelOrder, getOrderById, getOrders, getUserInfo, payOrder, updateOrder, updatePayment } from "../utils";
+import { cancelOrder, getOrders, getUserInfo, payOrder, updateOrder, updatePayment } from "../utils";
 
 const { Text } = Typography;
 
@@ -20,7 +20,6 @@ const MyOrders = () => {
   const [cancellingId, setCancellingId] = useState(null);
   const [updatingOrder, setUpdatingOrder] = useState(null);
   const [changingPaymentOrder, setChangingPaymentOrder] = useState(null);
-  const [changingPaymentId, setChangingPaymentId] = useState(null);
   const [form] = Form.useForm();
   const [paymentForm] = Form.useForm();
 
@@ -73,15 +72,8 @@ const MyOrders = () => {
   };
 
   const onChangePaymentMethod = (order) => {
-    const orderId = order.key?.orderId || order.orderId;
-    setChangingPaymentId(orderId);
-    getOrderById(orderId)
-      .then((fullOrder) => {
-        setChangingPaymentOrder({ ...order, paymentRef: fullOrder.paymentRef });
-        paymentForm.resetFields();
-      })
-      .catch((err) => message.error(err.message))
-      .finally(() => setChangingPaymentId(null));
+    setChangingPaymentOrder(order);
+    paymentForm.resetFields();
   };
 
   const onChangePaymentSubmit = () => {
@@ -165,7 +157,6 @@ const MyOrders = () => {
                     ? [
                         <Button
                           size="small"
-                          loading={changingPaymentId === orderId}
                           onClick={() => onChangePaymentMethod(order)}
                         >
                           Change Payment Method

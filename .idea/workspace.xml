@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="82cbe5b4-0e37-430d-b50e-b208b5fee086" name="Changes" comment="Unit test for Item, Cart, Order, Payment Services, Added Jacoco and excluded Boilerplate Classes." />
+    <list default="true" id="82cbe5b4-0e37-430d-b50e-b208b5fee086" name="Changes" comment="Updated README.md">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OrderService/initdb/01_keyspace_and_tables.cql" beforeDir="false" afterPath="$PROJECT_DIR$/OrderService/initdb/01_keyspace_and_tables.cql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OrderService/src/main/java/org/example/orderservice/controller/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/OrderService/src/main/java/org/example/orderservice/controller/OrderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OrderService/src/main/java/org/example/orderservice/dto/UpdateOrderRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/OrderService/src/main/java/org/example/orderservice/dto/UpdateOrderRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop-net/src/components/MyOrders.js" beforeDir="false" afterPath="$PROJECT_DIR$/shop-net/src/components/MyOrders.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -264,6 +271,8 @@
       <workItem from="1771428373037" duration="8461000" />
       <workItem from="1771452134775" duration="24768000" />
       <workItem from="1771517948571" duration="11451000" />
+      <workItem from="1771540632785" duration="877000" />
+      <workItem from="1771818182234" duration="11579000" />
     </task>
     <task id="LOCAL-00001" summary="account service (signin, signup), itemservice started">
       <option name="closed" value="true" />
@@ -353,7 +362,15 @@
       <option name="project" value="LOCAL" />
       <updated>1771474799584</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Updated README.md">
+      <option name="closed" value="true" />
+      <created>1771535484711</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1771535484711</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -383,7 +400,8 @@
     <MESSAGE value="update order, cancel order, refund payment (admin only)" />
     <MESSAGE value="Change payment method function of frontend" />
     <MESSAGE value="Unit test for Item, Cart, Order, Payment Services, Added Jacoco and excluded Boilerplate Classes." />
-    <option name="LAST_COMMIT_MESSAGE" value="Unit test for Item, Cart, Order, Payment Services, Added Jacoco and excluded Boilerplate Classes." />
+    <MESSAGE value="Updated README.md" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated README.md" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/final_chuwa$ItemServiceApplicationTests.ic" NAME="ItemServiceApplicationTests Coverage Results" MODIFIED="1771466650463" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
