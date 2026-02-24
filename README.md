@@ -18,6 +18,8 @@ in shop-net folder under root folder:
 npm start
 ```
 The application is available on http://localhost:3000/
+UI for Apache Kafka: http://localhost:8080/
+Swagger: http://localhost:9090/swagger-ui/index.html
 
 
 # Functional Requirements
