@@ -1,7 +1,7 @@
 # A React.js + Spring Boot e-commerce Web Application.
 Technologies used: 
 
-**Java, Spring Boot, Maven, Spring Security, Spring Cloud OpenFeign, Hibernate, Spring JPA, React.js, PostgreSQL, Cassandra, MongoDB, Junit, Mockito, Resilience4j, JaCoCo **
+**Java, Spring Boot, Maven, Spring Security, Spring Cloud OpenFeign, Hibernate, Spring JPA, React.js, PostgreSQL, Cassandra, MongoDB, Junit, Mockito, Resilience4j, JaCoCo**
 
 Video Demo:
 
