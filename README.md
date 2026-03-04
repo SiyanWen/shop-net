@@ -1,3 +1,12 @@
+# A React.js + Spring Boot e-commerce Web Application.
+Technologies used: 
+
+**Java, Spring Boot, Maven, Spring Security, Spring Cloud OpenFeign, Hibernate, Spring JPA, React.js, PostgreSQL, Cassandra, MongoDB, Junit, Mockito, Resilience4j, JaCoCo **
+
+Video Demo:
+
+https://drive.google.com/file/d/1qym8yV-Q6n9V7EmCa68qvgt3hXoAueEk/view?usp=sharing
+
 # RUN
 ## 1. Start database and kafka container
 in root folder:
